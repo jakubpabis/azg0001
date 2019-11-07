@@ -1,0 +1,7 @@
+*
+/.phpintel/
+.DS_Store
+/.DS_Store
+**/.DS_Store
+!/.gitignore
+!/wp-content/themes
