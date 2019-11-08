@@ -129,21 +129,26 @@
 						 ?>
 					</div>
 					<?php get_sidebar(); ?>
-					<?php 
-						$thumb_id = get_post_thumbnail_id();
-						$thumb_link = get_post($thumb_id)->post_content;
-						$thumb1 = wp_get_attachment_image_src($thumb_id, 'full_size', true);
-						$thumb2 = wp_get_attachment_image_src($thumb_id, 'full_sizeM', true);
-						$thumb3 = wp_get_attachment_image_src($thumb_id, 'full_sizeS', true);
-					 ?>
-					<a href="<?php echo $thumb_link; ?>">
+					<a href="<?php $thumb_id = get_post_thumbnail_id(); echo get_post($thumb_id)->post_content; ?>">
 						<picture>
-							<source srcset="<?php echo $thumb1[0]; ?>" media="(min-width: 801px)">
-							<source srcset="<?php echo $thumb2[0]; ?>" media="(min-width: 581px)">
-							<source srcset="<?php echo $thumb3[0]; ?>" media="(max-width: 580px)">
-							<img src="<?php echo $thumb1[0]; ?>">
+							<?php if(get_field('image_desktop') && get_field('image_mobile')) : ?>
+								<source srcset="<?= get_field('image_desktop')['url']; ?>" media="(min-width: 801px)">
+								<source srcset="<?= get_field('image_mobile')['url']; ?>" media="(min-width: 1px)">
+								<img src="<?= get_field('image_desktop')['url']; ?>">
+							<?php else : ?>
+								<?php 
+									$thumb1 = wp_get_attachment_image_src($thumb_id, 'full_size', true);
+									$thumb2 = wp_get_attachment_image_src($thumb_id, 'full_sizeM', true);
+									$thumb3 = wp_get_attachment_image_src($thumb_id, 'full_sizeS', true);
+								?>
+								<source srcset="<?php echo $thumb1[0]; ?>" media="(min-width: 801px)">
+								<source srcset="<?php echo $thumb2[0]; ?>" media="(min-width: 581px)">
+								<source srcset="<?php echo $thumb3[0]; ?>" media="(max-width: 580px)">
+								<img src="<?php echo $thumb1[0]; ?>">
+							<?php endif; ?>
 						</picture>
 					</a>
+					
 					<div class="container-full home-page">
 						<div class="row home-about">
 							<div class="col-m-53">
