@@ -47,7 +47,7 @@
 										<?php echo $description; ?>
 									</p>
 									<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
-										More Information
+										more information
 									</a>
 									<?php /*
 										if($sold){

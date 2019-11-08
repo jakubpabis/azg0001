@@ -1295,15 +1295,39 @@ footer
 		line-height: 36px
 		padding: 0 28px
 	&.sold
-		font-family: $charisB
 		border: none
 		padding: 0
+		height: auto!important
+		padding: 0!important
+		line-height: 1!important
+		overflow: visible!important
 		margin-top: 10px
+		font-family: $futuraM
+		color: $dgrey
+		position: relative
+		&:after
+			content: ''
+			background: $brown!important
+			height: 1px!important
+			position: absolute!important
+			bottom: -3px!important
+			width: 0!important
+			top: auto!important
+			left: 0!important
+			+trans(300ms)
+			display: block!important
+			opacity: 0!important
+			transform: none!important
 		&:hover
-			color: black
-			text-decoration: underline
+			color: $dgrey
+			text-decoration: none
 			&:after
-				display: none
+				bottom: -3px!important
+				height: 1px!important
+				top: auto!important
+				width: 100%!important
+				opacity: 1!important
+				transform: none!important
 	&.sold.solded
 		color: $grey
 		border-color: $grey

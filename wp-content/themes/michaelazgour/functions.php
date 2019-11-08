@@ -417,7 +417,7 @@ function filter_paintings_by_tax() {
 						<?php echo $description; ?>
 					</p>
 					<a href="#" class="more-link" data-title="<?php the_title(); ?>">
-						More Information
+						more information
 					</a>
 					<?php /*
 						if($sold){
