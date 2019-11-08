@@ -5,12 +5,73 @@
  ?>
 <?php get_header(); ?>
 	<div class="container-full news">
+		<?php
+			$types = [];
+			$news_types = get_terms('types');
+			foreach($news_types as $item) {
+				wp_reset_query();
+				$args = array(
+					'post_type' => 'news_exhibitions',
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'types',
+							'field' => 'slug',
+							'terms' => $item->slug,
+						),
+					),
+				);
+				$loop = new WP_Query($args);
+				if($loop->have_posts()) {
+					while($loop->have_posts()) : $loop->the_post();
+						$types[] = $item->slug;
+						break;
+					endwhile;
+				}
+			}
+		?>
+		<?php if(!empty($types)) : ?>
+		<div class="row">
+			<div class="col-xs-16 series-name-mobile news">
+				<?php
+					if(in_array('current', $types)) {
+						$active = (trim($_GET['types']) == 'current' ? 'active' : null);
+						echo '<a href="?types=current" class="news-current '.$active.'"><h2>Current</h2></a>';
+					}
+					if(in_array('upcoming', $types)) {
+						$active = (trim($_GET['types']) == 'upcoming' ? 'active' : null);
+						echo '<a href="?types=upcoming" class="news-upcoming '.$active.'"><h2>Upcoming</h2></a>';
+					}
+					if(in_array('past', $types)) {
+						$active = (trim($_GET['types']) == 'past' ? 'active' : null);
+						echo '<a href="?types=past" class="news-past '.$active.'"><h2>Past</h2></a>';
+					}
+				?>
+			</div>
+		</div>
+		<?php endif; ?>
 		<?php 
-			$args=array(
-			  'post_type' => 'news_exhibitions',
-			  'post_status' => 'publish',
-			  'posts_per_page' => -1,
-			);
+			if( isset($_GET["types"]) ) {
+				$args=array(
+					'post_type' => 'news_exhibitions',
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'types',
+							'field' => 'slug',
+							'terms' => trim($_GET["types"]),
+							'include_children' => false
+						)
+					)
+				);
+			} else {
+				$args=array(
+					'post_type' => 'news_exhibitions',
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+				);
+			}
+			
 			$news_query = null;
 			$news_query = new WP_Query($args);
 		 ?>
@@ -28,14 +89,14 @@
 									$thumb_3 = wp_get_attachment_image_src( $thumb_id, 'news_thumb3', true );
 									$thumb_4 = wp_get_attachment_image_src( $thumb_id, 'news_thumb4', true );
 								?>
-								<picture>
+								<picture class="bg-cover">
 									<source srcset="<?php echo $thumb_2[0]; ?>" media="(min-width: 1441px)">
 								    <source srcset="<?php echo $thumb_3[0]; ?>" media="(min-width: 1024px)">
 								    <source srcset="<?php echo $thumb_1[0]; ?>" media="(min-width: 701px)">
 								    <source srcset="<?php echo $thumb_2[0]; ?>" media="(min-width: 541px)">
 								    <source srcset="<?php echo $thumb_3[0]; ?>" media="(min-width: 448px)">
 								    <source srcset="<?php echo $thumb_4[0]; ?>" media="(max-width: 447px)">
-								    <img src="<?php echo $thumb_1[0]; ?>">
+								    <img class="bg-cover" src="<?php echo $thumb_1[0]; ?>">
 								</picture>
 							</a>
 						</div>

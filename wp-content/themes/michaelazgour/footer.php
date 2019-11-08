@@ -57,7 +57,7 @@
 					<div class="row">
 						<div class="col-l-16 col-m-16 col-s-10 col-xs-16 newsletterWidget">
 							<div class="widget widget_newsletterwidget">
-								<span class="widget-title">Sign up for my mailing list</span>
+								<span class="widget-title">Join our mailing list</span>
 								<div class="newsletter newsletter-widget">
 									<form id="mc-embedded-subscribe-form" action="//azgour.us8.list-manage.com/subscribe/post?u=593e376b651adaf85ba8c7f2b&id=1302139953" target="_blank" method="post">
 										<p>

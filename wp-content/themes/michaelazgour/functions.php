@@ -589,6 +589,37 @@ function news_exhibitions_post_type() {
 }
 add_action( 'init', 'news_exhibitions_post_type', 0 );
 
+add_action( 'init', 'create_news_taxonomy', 0 );
+function create_news_taxonomy() {
+
+  $labels = array(
+    'name' => _x( 'Types', 'taxonomy general name' ),
+    'singular_name' => _x( 'Type', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Types' ),
+    'popular_items' => __( 'Popular Types' ),
+    'all_items' => __( 'All Types' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Type' ), 
+    'update_item' => __( 'Update Type' ),
+    'add_new_item' => __( 'Add New Type' ),
+    'new_item_name' => __( 'New Type Name' ),
+    'separate_items_with_commas' => __( 'Separate Type with commas' ),
+    'add_or_remove_items' => __( 'Add or remove Type' ),
+    'choose_from_most_used' => __( 'Choose from the most used Type' ),
+    'menu_name' => __( 'Types' ),
+  ); 
+
+  register_taxonomy('types','news_exhibitions',array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'types' ),
+  ));
+}
 
 
 /*  CUSTOM POST TYPE: 'Modules'  */
