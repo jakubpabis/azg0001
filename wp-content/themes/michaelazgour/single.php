@@ -9,14 +9,14 @@
 							<h1><?php the_title(); ?></h1>
 							<?php the_date('F jS, Y', '<h5>', '</h5>'); ?> 
 							<div class="news-content"><?php the_content(); ?></div>
-							<div class="social-buttons">
+							<?php /* <div class="social-buttons">
 								<p>Share this page:</p>
 								<a href="" class="facebook" title="share on Facebook"><i class="fa fa-facebook"></i></a>
 								<a href="" class="linkedin" title="share on Linkedin"><i class="fa fa-linkedin"></i></a>
 								<a href="" class="gplus" title="share on Google+"><i class="fa fa-google-plus"></i></a>
 								<a href="" class="twitter" title="share on Twitter"><i class="fa fa-twitter"></i></a>
 								<a href="" class="mail" title="share via e-mail"><i class="fa fa-envelope"></i></a>
-							</div>
+							</div> */ ?>
 						</div>
 					</div>
 					<div class="row news-photos">

@@ -27,9 +27,9 @@
 				<h5><?php echo get_post_meta(get_the_ID(),'_my_sub-title',TRUE); ?></h5>
 			</div>
 			<div class="col-l-106">
-				<?php /* <p class="contact-text">
+				<p class="contact-text">
 					<?php echo get_post_meta(get_the_ID(),'_my_text',TRUE); ?>
-				</p> */ ?>
+				</p>
 				<div class="row address">
 					<div class="col-xl-53 col-l-7 col-m-6 col-s-7">
 						<p>

@@ -126,6 +126,9 @@
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 	</div>
+	<div class="sorting in-container mobile-only">
+		<?php years_news_tags_filter(); ?>
+	</div>
 	<div class="container-full paintings-down">
 		<?php quotes_module(); ?>
 		<?php modules_module(); ?>

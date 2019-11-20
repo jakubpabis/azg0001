@@ -74,6 +74,9 @@
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 	</div>
+	<div class="sorting in-container">
+		<?php years_news_tags_filter(); ?>
+	</div>
 	<div class="container-full paintings-down">
 		<?php
 			$term =	$wp_query->queried_object;
