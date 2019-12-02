@@ -29,7 +29,7 @@
 				}
 			}
 		*/ ?>
-		<div class="row">
+		<div class="row news-series">
 			<div class="col-xs-16 series-name-mobile news">
 				<?php
 					echo '<h2>Current Events</h2></a>';
@@ -101,7 +101,7 @@
 			?>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<div class="row">
+		<div class="row news-series">
 			<div class="col-xs-16 series-name-mobile news">
 				<?php
 					echo '<h2>Upcoming Events</h2></a>';
@@ -173,7 +173,7 @@
 			?>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<div class="row">
+		<div class="row news-series">
 			<div class="col-xs-16 series-name-mobile news">
 				<?php
 					echo '<h2>Past Events</h2></a>';
