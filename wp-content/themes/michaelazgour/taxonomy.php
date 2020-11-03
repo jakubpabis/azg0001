@@ -28,10 +28,11 @@
 							if ( !empty( $terms ) ){
 							    // get the first term
 							    $term = array_shift( $terms );
-							    $name = $term->name;
+								$name = $term->name;
+								$description = $term->description;
 							}
 						 ?>
-						<div class="row" data-series="<?php echo $name; ?>">
+						<div class="row" data-series="<?php echo $name; ?>" data-description="<?php echo $description; ?>">
 							<div class="col-xs-16 the-painting">
 								<?php if($iteration <= 3): ?>
 								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true); ?>">

@@ -33,7 +33,7 @@
 				<div class="row address">
 					<div class="col-xl-53 col-l-7 col-m-6 col-s-7">
 						<p>
-							T: <a href="tel:+1 415 425 1693">+1 415 425 1693</a><br/>
+							T: <a href="tel:+1 415 992 6455">+1 415 992 6455</a><br/>
 							E: <a href="mailto:mazgour@gmail.com">mazgour@gmail.com</a>
 						</p>
 					</div>

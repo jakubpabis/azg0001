@@ -814,7 +814,7 @@ function modules_module(){
 	endif;
 }
 
-/*  CUSTOM POST TYPE: 'Modules'  */
+
 function create_quotes() {
 
 	register_post_type( 'quotes',

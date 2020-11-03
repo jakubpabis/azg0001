@@ -29,13 +29,6 @@
 				}
 			}
 		*/ ?>
-		<div class="row news-series">
-			<div class="col-xs-16 series-name-mobile news">
-				<?php
-					echo '<h2>Current Events</h2></a>';
-				?>
-			</div>
-		</div>
 		<?php 
 			$args=array(
 				'post_type' => 'news_exhibitions',
@@ -54,6 +47,13 @@
 			$news_query = new WP_Query($args);
 		?>
 		<?php if ( $news_query->have_posts() ) : ?>
+			<div class="row news-series">
+				<div class="col-xs-16 series-name-mobile news">
+					<?php
+						echo '<h2>Current Events</h2></a>';
+					?>
+				</div>
+			</div>
 			<?php
 				while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
 					
@@ -99,15 +99,16 @@
 
 				<?php endwhile;
 			?>
+		<?php else: ?>
+			<div class="row news-series">
+				<div class="col-xs-16 series-name-mobile news">
+					<?php
+						echo '<h2 style="color: rgb(138, 140, 142);">Current Events</h2></a>';
+					?>
+				</div>
+			</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<div class="row news-series">
-			<div class="col-xs-16 series-name-mobile news">
-				<?php
-					echo '<h2>Upcoming Events</h2></a>';
-				?>
-			</div>
-		</div>
 		<?php 
 			$args=array(
 				'post_type' => 'news_exhibitions',
@@ -126,6 +127,13 @@
 			$news_query = new WP_Query($args);
 		?>
 		<?php if ( $news_query->have_posts() ) : ?>
+			<div class="row news-series">
+				<div class="col-xs-16 series-name-mobile news">
+					<?php
+						echo '<h2>Upcoming Events</h2></a>';
+					?>
+				</div>
+			</div>
 			<?php
 				while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
 					
@@ -171,15 +179,16 @@
 
 				<?php endwhile;
 			?>
+		<?php else: ?>
+			<div class="row news-series">
+				<div class="col-xs-16 series-name-mobile news">
+					<?php
+						echo '<h2 style="color: rgb(138, 140, 142);">Upcoming Events</h2></a>';
+					?>
+				</div>
+			</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<div class="row news-series">
-			<div class="col-xs-16 series-name-mobile news">
-				<?php
-					echo '<h2>Past Events</h2></a>';
-				?>
-			</div>
-		</div>
 		<?php 
 			$args=array(
 				'post_type' => 'news_exhibitions',
@@ -198,6 +207,13 @@
 			$news_query = new WP_Query($args);
 		?>
 		<?php if ( $news_query->have_posts() ) : ?>
+			<div class="row news-series">
+				<div class="col-xs-16 series-name-mobile news">
+					<?php
+						echo '<h2>Past Events</h2></a>';
+					?>
+				</div>
+			</div>
 			<?php
 				while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
 					
@@ -243,6 +259,14 @@
 
 				<?php endwhile;
 			?>
+		<?php else: ?>
+			<div class="row news-series">
+				<div class="col-xs-16 series-name-mobile news">
+					<?php
+						echo '<h2 style="color: rgb(138, 140, 142);">Past Events</h2></a>';
+					?>
+				</div>
+			</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		<?php quotes_module(); ?>

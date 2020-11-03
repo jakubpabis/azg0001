@@ -1605,7 +1605,12 @@ footer
 
 .series-name-mobile
 	margin: 0
-	margin-bottom: 20px
+	margin-bottom: 40px
+	@media(max-width: 50em)
+		&:first-of-type
+			margin-bottom: 10px
+		&:last-of-type
+			margin-bottom: 30px
 	h2
 		font-family: $futuraM
 	&.news 

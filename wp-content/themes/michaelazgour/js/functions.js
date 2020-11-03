@@ -247,7 +247,7 @@ function seriesNameMobile()
 {
 	$('.row[data-series]').each(function(){
 		if($(this).prev().attr('data-series') !== $(this).attr('data-series') && $(this).find('.series-name-mobile').length === 0){
-			$(this).prepend('<div class="col-xs-16 series-name-mobile"><h2>'+$(this).attr('data-series')+'</h2></div>');
+			$(this).prepend('<div class="col-m-53 col-xs-16 series-name-mobile"><h2 style="margin:0;">'+$(this).attr('data-series')+'</h2></div><div class="col-m-106 col-xs-16 series-name-mobile"><p style="margin:0;">'+$(this).attr('data-description')+'</p></div>');
 		}
 	});
 }
