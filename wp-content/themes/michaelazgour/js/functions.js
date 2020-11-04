@@ -4,7 +4,7 @@ var homeVH = $(window).height();
 $(function(){
 	var lastScroll = document.body.scrollTop;
 	goTop();
-	hoverTouchUnstick();
+	//hoverTouchUnstick();
 	menuOpen();
 	// yearsFooter();
 	// if($('.sorting').length){
@@ -25,6 +25,23 @@ $(function(){
 			scrollTop: 0
 		}, 1000);
 	});
+	if( $('.home-swiper').length > 0 ) {
+		var mySwiper = new Swiper('.swiper-container', {
+			loop: true,
+			speed: 1000,
+			autoHeight: true,
+
+			autoplay: {
+				delay: 4000,
+			},
+
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				clickable: true
+			},
+		});
+	}
 });
 $(window).on('load', function(){
 	if($('body').hasClass('frontPage')){
@@ -339,25 +356,25 @@ function showImgs()
  * @version 1.0 
  * @date    2014-12-20
  */
-function hoverTouchUnstick() {
-  // Check if the device supports touch events
-  if('ontouchstart' in document.documentElement) {
-    // Loop through each stylesheet
-    for(var sheetI = document.styleSheets.length - 1; sheetI >= 0; sheetI--) {
-      var sheet = document.styleSheets[sheetI];
-      // Verify if cssRules exists in sheet
-      if(sheet.cssRules) {
-        // Loop through each rule in sheet
-        for(var ruleI = sheet.cssRules.length - 1; ruleI >= 0; ruleI--) {
-          var rule = sheet.cssRules[ruleI];
-          // Verify rule has selector text
-          if(rule.selectorText) {
-            // Replace hover psuedo-class with active psuedo-class
-            rule.selectorText = rule.selectorText.replace(":hover", ":active");
-          }
-        }
-      }
-    }
-  }
-}
+// function hoverTouchUnstick() {
+//   // Check if the device supports touch events
+//   if('ontouchstart' in document.documentElement) {
+//     // Loop through each stylesheet
+//     for(var sheetI = document.styleSheets.length - 1; sheetI >= 0; sheetI--) {
+//       var sheet = document.styleSheets[sheetI];
+//       // Verify if cssRules exists in sheet
+//       if(sheet.cssRules) {
+//         // Loop through each rule in sheet
+//         for(var ruleI = sheet.cssRules.length - 1; ruleI >= 0; ruleI--) {
+//           var rule = sheet.cssRules[ruleI];
+//           // Verify rule has selector text
+//           if(rule.selectorText) {
+//             // Replace hover psuedo-class with active psuedo-class
+//             rule.selectorText = rule.selectorText.replace(":hover", ":active");
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 

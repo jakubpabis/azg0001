@@ -322,6 +322,28 @@ textarea
 	&.hide
 		opacity: 0
 
+.whole-element-link
+	position: absolute
+	display: block
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 9
+
+.home-swiper
+	.swiper-container
+		.swiper-pagination
+			.swiper-pagination-bullet
+				background-color: white!important
+				width: 12px!important
+				height: 12px!important
+				margin: 0 8px!important
+				@media(max-width: 767px)
+					width: 10px!important
+					height: 10px!important
+					margin: 0 6px!important
+
 .home-image
 	overflow: hidden
 	position: relative
@@ -440,14 +462,12 @@ textarea
 
 body.frontPage
 	nav.main-navigation
-		position: relative
-		top: auto
+		position: sticky
+		top: 0
 		bottom: auto
 		.logo
 			z-index: 0!important
 		&.sticky
-			position: fixed!important
-			top: 0!important
 			.logo
 				z-index: 999999999!important
 		@media(max-width: 28em)

@@ -128,26 +128,50 @@
 						 	<?php endif;
 						 ?>
 					</div>
+
 					<?php get_sidebar(); ?>
-					<a href="<?php $thumb_id = get_post_thumbnail_id(); echo get_post($thumb_id)->post_content; ?>">
-						<picture>
-							<?php if(get_field('image_desktop') && get_field('image_mobile')) : ?>
-								<source srcset="<?= get_field('image_desktop')['url']; ?>" media="(min-width: 801px)">
-								<source srcset="<?= get_field('image_mobile')['url']; ?>" media="(min-width: 1px)">
-								<img src="<?= get_field('image_desktop')['url']; ?>">
-							<?php else : ?>
-								<?php 
-									$thumb1 = wp_get_attachment_image_src($thumb_id, 'full_size', true);
-									$thumb2 = wp_get_attachment_image_src($thumb_id, 'full_sizeM', true);
-									$thumb3 = wp_get_attachment_image_src($thumb_id, 'full_sizeS', true);
-								?>
-								<source srcset="<?php echo $thumb1[0]; ?>" media="(min-width: 801px)">
-								<source srcset="<?php echo $thumb2[0]; ?>" media="(min-width: 581px)">
-								<source srcset="<?php echo $thumb3[0]; ?>" media="(max-width: 580px)">
-								<img src="<?php echo $thumb1[0]; ?>">
-							<?php endif; ?>
-						</picture>
-					</a>
+
+					<?php if( get_field('slider') ): ?>
+						<div class="home-swiper">
+							<!-- Slider main container -->
+							<div class="swiper-container">
+								<!-- Additional required wrapper -->
+								<div class="swiper-wrapper">
+									<!-- Slides -->
+									<?php foreach( get_field('slider') as $slide ): ?>
+									<div class="swiper-slide">
+										<img src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
+										<?php if( $slide['link_to'] ): ?>
+											<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
+										<?php endif; ?>
+									</div>
+									<?php endforeach; ?>
+								</div>
+								<!-- If we need pagination -->
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					<?php elseif( get_field('image_desktop') ): ?>
+						<a href="<?php $thumb_id = get_post_thumbnail_id(); echo get_post($thumb_id)->post_content; ?>">
+							<picture>
+								<?php if(get_field('image_desktop') && get_field('image_mobile')) : ?>
+									<source srcset="<?= get_field('image_desktop')['url']; ?>" media="(min-width: 801px)">
+									<source srcset="<?= get_field('image_mobile')['url']; ?>" media="(min-width: 1px)">
+									<img src="<?= get_field('image_desktop')['url']; ?>">
+								<?php else : ?>
+									<?php 
+										$thumb1 = wp_get_attachment_image_src($thumb_id, 'full_size', true);
+										$thumb2 = wp_get_attachment_image_src($thumb_id, 'full_sizeM', true);
+										$thumb3 = wp_get_attachment_image_src($thumb_id, 'full_sizeS', true);
+									?>
+									<source srcset="<?php echo $thumb1[0]; ?>" media="(min-width: 801px)">
+									<source srcset="<?php echo $thumb2[0]; ?>" media="(min-width: 581px)">
+									<source srcset="<?php echo $thumb3[0]; ?>" media="(max-width: 580px)">
+									<img src="<?php echo $thumb1[0]; ?>">
+								<?php endif; ?>
+							</picture>
+						</a>
+					<?php endif; ?>
 					
 					<div class="container-full home-page">
 						<div class="row home-about">
