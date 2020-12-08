@@ -8,170 +8,52 @@
 	<label>Open in new tab?</label><br/>
 	<?php $mb->the_field('is_new_tab'); ?>
 	<input type="checkbox" name="<?php $mb->the_name(); ?>" value="new_tab"<?php $mb->the_checkbox_state('new_tab'); ?>/>Yes<br/>
- 
+	
+	<?php /*
 	<br/>
 	<br/>	
 	<h3>Assign this module to following years:</h3>
 
-	<p>
-		<?php $mb->the_field('year1'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year2'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year3'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year4'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year5'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year6'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year7'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year8'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year9'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
-	<p>
-		<?php $mb->the_field('year10'); ?>
-		<select name="<?php $mb->the_name(); ?>">
-		<option value="none">None</option>
-		<?php
-		global $thispost;
-		$myposts = get_terms( array(
-		    'taxonomy' => 'years',
-		    'hide_empty' => false,
-		) );
-		foreach($myposts as $thispost) : ?>
-			<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->slug; ?></option>
-		<?php endforeach; ?>
-		<?php setup_postdata($thispost); ?>
-		</select>
-	</p>
+	<?php for( $i = 1; $i <= 10; $i++  ): ?>
+		<p>
+			<?php $mb->the_field('year'.$i); ?>
+			<select name="<?php $mb->the_name(); ?>">
+			<option value="none">None</option>
+			<?php
+			global $thispost;
+			$myposts = get_terms( array(
+				'taxonomy' => 'years',
+				'hide_empty' => false,
+			) );
+			foreach($myposts as $thispost) : ?>
+				<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->name; ?></option>
+			<?php endforeach; ?>
+			<?php setup_postdata($thispost); ?>
+			</select>
+		</p>
+	<?php endfor; */ ?>
+
+	<br/>
+	<br/>	
+	<h3>Assign this module to following series:</h3>
+
+	<?php for( $i = 1; $i <= 10; $i++  ): ?>
+		<p>
+			<?php $mb->the_field('year'.$i); ?>
+			<select name="<?php $mb->the_name(); ?>">
+			<option value="">None</option>
+			<?php
+			global $thispost;
+			$myposts = get_terms( array(
+				'taxonomy' => 'series',
+				'hide_empty' => false,
+			) );
+			foreach($myposts as $thispost) : ?>
+				<option value="<?php echo $thispost->slug; ?>" <?php $mb->the_select_state($thispost->slug);?> ><?php echo $thispost->name; ?></option>
+			<?php endforeach; ?>
+			<?php setup_postdata($thispost); ?>
+			</select>
+		</p>
+	<?php endfor; ?>
 
 </div>

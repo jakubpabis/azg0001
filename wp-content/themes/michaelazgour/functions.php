@@ -708,6 +708,7 @@ function modules_module(){
 	$module1 = $metaM['module1'];
 	$module2 = $metaM['module2'];
 	$module3 = $metaM['module3'];
+	//var_dump($module1);
 	?>
 	<?php if($module1 !== "none" || $module2 !== "none" || $module3 !== "none"): ?>
 		<div class="row modules">
@@ -811,8 +812,7 @@ function modules_module(){
 				?>
 			</div>
 		</div>
-	<?php
-	endif;
+	<?php endif;
 }
 
 
@@ -884,7 +884,7 @@ function quotes_module(){
 	$metaQ = get_post_meta(get_the_ID(), $quotes_mb->get_the_id(), TRUE);
 	$quote = $metaQ['quote'];
 
-	if($quote !== "none"):?>
+	if($quote !== "none" && $quote !== null && $quote): ?>
 
 		<div class="col-xs-16 the-quote">
 			<?php
@@ -894,8 +894,7 @@ function quotes_module(){
 			<p><?php echo $text_Q ?></p>
 		</div>
 
-	<?php
-	endif;
+	<?php endif;
 }
 
 /*  CUSTOM POST TYPE: 'Galleries'  */

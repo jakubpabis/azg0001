@@ -141,6 +141,11 @@
 									<?php foreach( get_field('slider') as $slide ): ?>
 									<div class="swiper-slide">
 										<img src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
+										<?php if( $slide['text'] ): ?>
+											<div class="swiper-slide-text">
+												<?php echo $slide['text']; ?>
+											</div>
+										<?php endif; ?>
 										<?php if( $slide['link_to'] ): ?>
 											<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
 										<?php endif; ?>

@@ -50,21 +50,6 @@
 									<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
 										more information
 									</a>
-									<?php /*
-										if($sold){
-											?>
-												<div class="buttonB sold solded">
-													Collected
-												</div>
-											<?php
-										} else {
-											?>
-												<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
-													Available: Inquire
-												</a>
-											<?php
-										}
-									*/ ?>
 								</div>
 							</div>
 						</div>
