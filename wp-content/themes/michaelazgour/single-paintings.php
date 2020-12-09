@@ -11,10 +11,10 @@
 							<div class="news-content"><?php the_content(); ?></div>
 							<div class="social-buttons painting">
 								<p>Share this painting:</p>
-								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="facebook" title="share on Facebook"><i class="fa fa-facebook"></i></a>
-								<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>&title=<?php the_title(); ?>&summary=&<?php echo get_permalink(); ?>" class="linkedin" title="share on Linkedin"><i class="fa fa-linkedin"></i></a>
-								<a href="https://twitter.com/home?status=<?php echo get_permalink(); ?>" class="twitter" title="share on Twitter"><i class="fa fa-twitter"></i></a>
-								<a href="mailto:?subject=<?php the_title(); ?>&body=<?php echo get_permalink(); ?>" class="mail" title="share via e-mail"><i class="fa fa-envelope"></i></a>
+								<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink(); ?>" class="facebook" title="share on Facebook"><i class="fa fa-facebook"></i></a>
+								<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_the_permalink(); ?>&title=<?php the_title(); ?>&summary=&<?php echo get_permalink(); ?>" class="linkedin" title="share on Linkedin"><i class="fa fa-linkedin"></i></a>
+								<a target="_blank" href="https://twitter.com/home?status=<?php echo get_the_permalink(); ?>" class="twitter" title="share on Twitter"><i class="fa fa-twitter"></i></a>
+								<a target="_blank" href="mailto:?subject=<?php the_title(); ?>&body=<?php echo get_the_permalink(); ?>" class="mail" title="share via e-mail"><i class="fa fa-envelope"></i></a>
 							</div>
 						</div>
 					</div>
