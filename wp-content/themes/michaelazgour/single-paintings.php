@@ -48,7 +48,7 @@
 							<?php endif; ?>
 						</div>
 					</div>
-					<div class="row news-navigation">
+					<div class="row news-navigation painting">
 						<div class="col-xs-16">
 							<?php 
 								the_post_navigation( array(
