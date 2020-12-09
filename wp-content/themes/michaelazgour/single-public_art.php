@@ -509,7 +509,6 @@
 								<p>Share this page:</p>
 								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="facebook" title="share on Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
 								<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>&title=<?php the_title(); ?>&summary=&<?php echo get_permalink(); ?>" class="linkedin" title="share on Linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
-								<a href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>" class="gplus" title="share on Google+" target="_blank"><i class="fa fa-google-plus"></i></a>
 								<a href="https://twitter.com/home?status=<?php echo get_permalink(); ?>" class="twitter" title="share on Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
 								<a href="mailto:?subject=<?php the_title(); ?>&body=<?php echo get_permalink(); ?>" class="mail" title="share via e-mail"><i class="fa fa-envelope"></i></a>
 							</div>

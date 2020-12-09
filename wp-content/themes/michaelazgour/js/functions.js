@@ -305,12 +305,12 @@ function homeFade(){
 }
 
 function paintingForm(){
-	$(document).on('click', '.buttonB.sold[data-title]', function(e){
+	$(document).on('click', '.buttonB.sold[data-title], .buttonB.enquiry[data-title]', function(e){
 		e.preventDefault();
 		$this = $(this);
 		$form = $('.inquiry-contact');
 
-		if($form.hasClass('showed')){
+		if($form.hasClass('showed') && !$this.next($form).hasClass('showed')){
 			$form.slideUp(500);
 			setTimeout(function(){
 				$form.insertAfter($this);

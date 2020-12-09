@@ -34,11 +34,13 @@
 						 ?>
 						<div class="row" data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>">
 							<div class="col-xs-16 the-painting">
-								<?php if($iteration <= 3): ?>
-								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true); ?>">
-								<?php else: ?>
-								<img data-src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true); ?>">
-								<?php endif ?>
+								<a href="<?php echo get_the_permalink(); ?>">
+									<?php if($iteration <= 3): ?>
+									<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true); ?>">
+									<?php else: ?>
+									<img data-src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true); ?>">
+									<?php endif ?>
+								</a>
 								<div class="credits">
 									<h3><?php the_title(); ?></h3>
 									<p class="technique">
@@ -47,7 +49,7 @@
 									<p class="charis"> 
 										<?php echo $description; ?>
 									</p>
-									<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
+									<a href="<?php echo get_the_permalink(); ?>" class="buttonB sold">
 										more information
 									</a>
 								</div>
