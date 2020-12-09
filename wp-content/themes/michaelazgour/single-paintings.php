@@ -13,7 +13,7 @@
 								<p>Share this painting:</p>
 								<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink(); ?>" class="facebook" title="share on Facebook"><i class="fa fa-facebook"></i></a>
 								<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_the_permalink(); ?>&title=<?php echo get_the_title(); ?>" class="linkedin" title="share on Linkedin"><i class="fa fa-linkedin"></i></a>
-								<a target="_blank" href="https://twitter.com/intent/tweet?url<?php echo get_the_permalink(); ?>&text=<?php echo get_the_title(); ?>" class="twitter" title="share on Twitter"><i class="fa fa-twitter"></i></a>
+								<a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo get_the_permalink(); ?>&text=<?php echo get_the_title(); ?>" class="twitter" title="share on Twitter"><i class="fa fa-twitter"></i></a>
 								<a target="_blank" href="mailto:?subject=<?php the_title(); ?>&body=<?php echo get_the_permalink(); ?>" class="mail" title="share via e-mail"><i class="fa fa-envelope"></i></a>
 							</div>
 						</div>
