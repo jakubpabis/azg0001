@@ -1798,8 +1798,96 @@ footer
 .news-text
 	h5
 		margin: 0
+	&.painting
+		margin-bottom: 3em
+	&-title-center
+		margin: 0 auto!important
 	&-prev,
 	&-next
+		> div
+			height: 42px
+			line-height: 42px
+			width: auto
+			display: inline-block
+			padding: 0
+			border: 1px solid $dgrey
+			font-family: $charis
+			color: $dgrey
+			background-repeat: no-repeat
+			background-size: 40px 40px
+			position: relative
+			z-index: 2
+			a
+				padding: 0 40px
+				+trans(300ms)
+				z-index: 2
+				height: 40px
+				display: block
+				position: relative
+				text-transform: capitalize
+				&:after
+					content: ''
+					position: absolute
+					top: 0
+					bottom: 0
+					background: $dgrey
+					+trans(300ms)
+					width: 0
+					height: 100%
+					z-index: -2
+			&:hover
+				a
+					color: white
+					&:after
+						width: 100%
+		.nav-next
+			float: left
+			background-image: url(../img/arrowL.svg)
+			background-position: center left
+			background-repeat: no-repeat
+			a
+				margin-left: 40px
+				&:after
+					left: 0
+		.nav-previous
+			float: right
+			background-image: url(../img/arrowR.svg)
+			background-position: center right
+			background-repeat: no-repeat
+			a
+				margin-right: 40px
+				&:after
+					right: 0
+		@media(max-width: 87em)
+			> div
+				height: 36px
+				line-height: 36px
+				background-size: 34px 34px
+				a
+					padding: 0 30px
+					height: 34px
+					font-size: 16px
+			.nav-next
+				a
+					margin-left: 30px
+			.nav-previous
+				a
+					margin-right: 30px
+		@media(max-width: 22.500em)
+			> div
+				height: 32px
+				line-height: 32px
+				background-size: 32px 32px
+				a
+					padding: 0 20px
+					height: 30px
+					font-size: 16px
+			.nav-next
+				a
+					margin-left: 28px
+			.nav-previous
+				a
+					margin-right: 28px
 		@media(max-width: 799px)
 			display: none!important
 	.news-content

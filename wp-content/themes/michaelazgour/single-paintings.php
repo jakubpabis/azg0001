@@ -3,21 +3,27 @@
 		<?php if ( have_posts() ) : ?>
 			<?php
 				while ( have_posts() ) : the_post(); ?>
-
-					<div class="row news-navigation painting top">
-						<div class="col-xs-16">
-							<?php 
-								the_post_navigation( array(
-									'screen_reader_text' => ' ',
-									'next_text' =>  __( 'previous painting', 'azgour' ),
-									'prev_text' =>  __( 'next painting', 'azgour' ),
-								) );
-							 ?>
+					<?php 
+						$next_post_id = get_next_post()->ID;
+						$prev_post_id = get_previous_post()->ID;
+					?>
+					<div class="row news-text painting">
+						<div class="col-m-5 col-l-4 news-text-next">
+							<?php if( $next_post_id ): ?>
+								<div class="nav-next">
+									<a href="<?php echo get_permalink( $next_post_id ); ?>">Previous Painting</a>
+								</div>
+							<?php endif; ?>
 						</div>
-					</div>
-					<div class="row news-text">
-						<div class="col-xs-16 text-center m767">
-							<h1><?php the_title(); ?></h1>
+						<div class="col-m-6 col-l-8 text-center m767">
+							<h1 class="news-text-title-center"><?php the_title(); ?></h1>
+						</div>
+						<div class="col-m-5 col-l-4 news-text-prev text-right">
+							<?php if( $prev_post_id ): ?>
+								<div class="nav-previous">
+									<a href="<?php echo get_permalink( $prev_post_id ); ?>">Next Painting</a>
+								</div>
+							<?php endif; ?>
 						</div>
 					</div>
 					<div class="row news-photos painting text-center m767">
