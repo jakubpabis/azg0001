@@ -8,20 +8,20 @@
 						$prev_post_id = get_previous_post()->ID;
 					?>
 					<div class="row news-text painting">
-						<div class="col-m-5 col-l-4 news-text-next">
+						<div class="col-m-4 col-l-3 news-text-next">
 							<?php if( $next_post_id ): ?>
 								<div class="nav-next">
-									<a href="<?php echo get_permalink( $next_post_id ); ?>">Previous Painting</a>
+									<a href="<?php echo get_permalink( $next_post_id ); ?>">Previous</a>
 								</div>
 							<?php endif; ?>
 						</div>
-						<div class="col-m-6 col-l-8 text-center m767">
+						<div class="col-m-8 col-l-10 text-center m767">
 							<h1 class="news-text-title-center"><?php the_title(); ?></h1>
 						</div>
-						<div class="col-m-5 col-l-4 news-text-prev text-right">
+						<div class="col-m-4 col-l-3 news-text-prev text-right">
 							<?php if( $prev_post_id ): ?>
 								<div class="nav-previous">
-									<a href="<?php echo get_permalink( $prev_post_id ); ?>">Next Painting</a>
+									<a href="<?php echo get_permalink( $prev_post_id ); ?>">Next</a>
 								</div>
 							<?php endif; ?>
 						</div>
@@ -65,8 +65,8 @@
 							<?php 
 								the_post_navigation( array(
 									'screen_reader_text' => ' ',
-									'next_text' =>  __( 'previous painting', 'azgour' ),
-									'prev_text' =>  __( 'next painting', 'azgour' ),
+									'next_text' =>  __( 'previous', 'azgour' ),
+									'prev_text' =>  __( 'next', 'azgour' ),
 								) );
 							 ?>
 						</div>

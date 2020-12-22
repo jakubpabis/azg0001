@@ -18,7 +18,7 @@
 	<script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
 	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/sass/style.min.css?v=1.15">
+	<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/sass/style.min.css?v=1.16">
 	<script src="https://use.fontawesome.com/2c188634d9.js" async defer></script>
 	<?php wp_head(); ?>
 	<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/593e376b651adaf85ba8c7f2b/acc94612c2130896b0f112c08.js");</script>

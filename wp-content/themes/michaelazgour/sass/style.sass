@@ -1665,14 +1665,20 @@ footer
 	display: none
 	width: auto
 	font-size: 16px
+	line-height: 0.9
 	color: black
 	font-family: $futuraM
-	margin: 0
-	position: absolute
+	margin: 0 40px 0 0
+	transform: translateY(-8px)
+	width: 100%
+	//position: absolute
 	@media(max-width: 28em)
 		display: inline-block
-		left: 15px
-		bottom: 12px
+	@media(max-width: 25em)
+		font-size: 15px
+	@media(max-width: 22.5em)
+		font-size: 14px
+
 		
 
 .the-painting
@@ -1927,86 +1933,34 @@ footer
 		.the-photo
 			max-width: 100%
 			max-width: 100vw
+			img
+				max-height: calc(100vh - 150px)
+				width: auto
+				@media(max-width: 1600px)
+					max-height: calc(100vh - 120px)
+				@media(max-width: 1280px)
+					max-height: calc(100vh - 100px)
 	&.first
 		margin-top: 50px
 	.the-photo
 		padding: 0 15px
-		// margin: 0 auto
 		margin-bottom: 30px
 		display: block
 		max-width: 66%
 		max-width: 66vw
-		// text-align: center
-		// &.big
-		// 	-webkit-flex: 1 1 66%
-		// 	flex: 1 1 66%
-		// 	max-height: calc(70vh - 30px)
-		// &.small
-		// 	-webkit-flex: 1 1 33%
-		// 	flex: 1 1 33%
-		img
-			// margin: 0 auto
-		// 	object-fit: cover
-		// 	-o-object-fit: cover
-		// 	max-height: 100vh
-	// .flexin
-	// 	max-height: 70vh
-	// 	-webkit-flex: 1 1 33%
-	// 	flex: 1 1 33%
-	// 	display: -webkit-flex
-	// 	-ms-box-orient: horizontal
-	// 	display: -webkit-box
-	// 	display: -moz-box
-	// 	display: -ms-flexbox
-	// 	display: -moz-flex
-	// 	display: -webkit-flex
-	// 	display: flex
-	// 	height: auto
-	// 	-webkit-flex-flow: column wrap
-	// 	flex-flow: column wrap
 	@media(max-width: 75em)
 		.the-photo
 			padding: 0 6px
 			margin-bottom: 12px
 			max-width: 80%
 			max-width: 80vw
-			// &.big
-			// 	max-height: calc(70vh - 12px)
 	@media(max-width: 47.938em)
-		// display: block
-		// -webkit-flex-flow: none
-		// flex-flow: none
-		// height: auto
 		&.first
 			margin-top: 50px
 		.the-photo
 			margin-bottom: 25px
 			max-width: 100%
 			max-width: 100vw
-			// display: block
-			// -webkit-align-items: center
-			// align-items: center
-			// -webkit-justify-content: center
-			// justify-content: center
-		// 	overflow: none
-		// 	-webkit-flex: none
-		// 	flex: none
-		// 	max-height: 100%
-		// 	&.big
-		// 		-webkit-flex: none
-		// 		flex: none
-		// 		max-height: 100%
-		// 	&.small
-		// 		-webkit-flex: none
-		// 		flex: none
-		// .flexin
-		// 	max-height: 100%
-		// 	-webkit-flex: none
-		// 	flex: none
-		// 	display: block
-		// 	height: auto
-		// 	-webkit-flex-flow: none
-		// 	flex-flow: none
 
 .news-caption
 	p
