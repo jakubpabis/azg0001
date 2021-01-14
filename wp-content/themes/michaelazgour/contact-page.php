@@ -91,6 +91,21 @@
 			</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
+		<div class="row home-about">
+			<div class="col-m-53">
+				<h1>
+					Virtual Gallery
+				</h1>
+				<h5>
+					Recent Paintings
+				</h5>
+			</div>
+			<div class="col-m-106">
+				<div class="embed-container">
+					<iframe width="100%" src="https://www.artsteps.com/embed/5f8479af39160b3754715df4/560/315" frameborder="0" allowfullscreen></iframe>	
+				</div>
+			</div>
+		</div>
 		<div class="row follow">
 			<div class="col-l-53">
 				<h1><?php echo get_post_meta(get_the_ID(),'_my_title3',TRUE); ?></h1>
