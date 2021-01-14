@@ -91,7 +91,7 @@
 			</div>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-		<div class="row home-about">
+		<div class="row video">
 			<div class="col-m-53">
 				<h1>
 					Virtual Gallery
