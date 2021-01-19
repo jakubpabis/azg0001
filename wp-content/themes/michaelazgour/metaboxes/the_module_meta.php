@@ -45,7 +45,7 @@
 			<?php
 			global $thispost;
 			$myposts = get_terms( array(
-				'taxonomy' => 'series',
+				'taxonomy' => 'years',
 				'hide_empty' => false,
 			) );
 			foreach($myposts as $thispost) : ?>
