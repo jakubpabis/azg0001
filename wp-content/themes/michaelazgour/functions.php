@@ -1184,7 +1184,7 @@ function wpdocs_filter_wp_title( $title, $sep ) {
         return $title;
  
     // Add the site name.
-    $titleH .= get_bloginfo( 'name' );
+    $titleH = get_bloginfo( 'name' );
     $title .= 'AZGOUR';
  
     // Add the site description for the home/front page.
@@ -1319,7 +1319,7 @@ function blank($title) {
 }
 
 function get_all_town_posts( $query ) {
-  if( !is_admin() && $query->is_main_query() && is_term( 'years' ) ) {
+  if( !is_admin() && $query->is_main_query() && term_exists( 'years' ) ) {
     $query->set( 'posts_per_page', '-1' );
   }
 }

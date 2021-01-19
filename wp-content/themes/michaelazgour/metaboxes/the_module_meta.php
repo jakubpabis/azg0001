@@ -35,7 +35,7 @@
 
 	<br/>
 	<br/>	
-	<h3>Assign this module to following series:</h3>
+	<h3>Assign this module to following years:</h3>
 
 	<?php for( $i = 1; $i <= 10; $i++  ): ?>
 		<p>
