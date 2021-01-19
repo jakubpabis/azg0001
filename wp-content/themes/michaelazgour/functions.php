@@ -417,6 +417,7 @@ function filter_paintings_by_tax() {
 		?>
 		<?php if(!$not_show) : ?>
 		<?php 
+			global $post;
 			$terms = get_the_terms( $post->ID, 'series' );
 			if ( !empty( $terms ) ){
 			    // get the first term
