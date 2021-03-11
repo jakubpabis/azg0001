@@ -199,7 +199,7 @@
 						</div>
 					</div>
 
-					<div class="container-full home-page">
+					<?php /* <div class="container-full home-page">
 						<div class="row home-about">
 							<div class="col-m-53">
 								<h1>
@@ -215,7 +215,8 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> */ ?>
+
 				<?php
 			endwhile;
 		?>
