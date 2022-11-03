@@ -1,21 +1,21 @@
-<?php 
+<?php
 /*
 * Template Name: Home
 */
 ?>
 <?php get_header(); ?>
-	<?php if ( have_posts() ) : ?>
+<?php if (have_posts()) : ?>
+	<?php
+	while (have_posts()) : the_post();
+	?>
 		<?php
-			while ( have_posts() ) : the_post();
-				?>
-					<?php 
-						global $rotator_img_mb;
-					 	$rotate = get_post_meta(get_the_ID(), $rotator_img_mb->get_the_id(), TRUE);
-					 	shuffle($rotate['rotator']);
-					 	foreach($rotate['rotator'] as $img){
-					 		$url = $img['imgurl'];
-					 	}
-					?>
+		global $rotator_img_mb;
+		$rotate = get_post_meta(get_the_ID(), $rotator_img_mb->get_the_id(), TRUE);
+		shuffle($rotate['rotator']);
+		foreach ($rotate['rotator'] as $img) {
+			$url = $img['imgurl'];
+		}
+		?><?php /*
 					<div class="home-image" style="background-image: url(<?php echo $url; ?>);">
 						<div class="overlayHome"></div>
 						<div class="logo">
@@ -126,79 +126,80 @@
 								</div>
 						 	<?php endif;
 						 ?>
-					</div>
+					</div> */ ?>
 
-					<?php get_sidebar(); ?>
+		<?php get_sidebar(); ?>
 
-					<?php if( get_field('slider') ): ?>
-						<div class="home-swiper">
-							<!-- Slider main container -->
-							<div class="swiper-container">
-								<!-- Additional required wrapper -->
-								<div class="swiper-wrapper">
-									<!-- Slides -->
-									<?php foreach( get_field('slider') as $slide ): ?>
-									<div class="swiper-slide">
-										<img src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
-										<?php if( $slide['text'] ): ?>
-											<div class="swiper-slide-text">
-												<?php echo $slide['text']; ?>
-											</div>
-										<?php endif; ?>
-										<?php if( $slide['link_to'] ): ?>
-											<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
-										<?php endif; ?>
+		<?php if (get_field('slider')) : ?>
+			<div class="home-swiper" style="position: relative;">
+				<!-- Slider main container -->
+				<div class="swiper-container">
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<?php foreach (get_field('slider') as $slide) : ?>
+							<div class="swiper-slide">
+								<img src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
+								<?php if ($slide['text']) : ?>
+									<div class="swiper-slide-text">
+										<?php echo $slide['text']; ?>
 									</div>
-									<?php endforeach; ?>
-								</div>
-								<!-- If we need pagination -->
-								<div class="swiper-pagination"></div>
-							</div>
-						</div>
-					<?php elseif( get_field('image_desktop') ): ?>
-						<a href="<?php $thumb_id = get_post_thumbnail_id(); echo get_post($thumb_id)->post_content; ?>">
-							<picture>
-								<?php if(get_field('image_desktop') && get_field('image_mobile')) : ?>
-									<source srcset="<?= get_field('image_desktop')['url']; ?>" media="(min-width: 801px)">
-									<source srcset="<?= get_field('image_mobile')['url']; ?>" media="(min-width: 1px)">
-									<img src="<?= get_field('image_desktop')['url']; ?>">
-								<?php else : ?>
-									<?php 
-										$thumb1 = wp_get_attachment_image_src($thumb_id, 'full_size', true);
-										$thumb2 = wp_get_attachment_image_src($thumb_id, 'full_sizeM', true);
-										$thumb3 = wp_get_attachment_image_src($thumb_id, 'full_sizeS', true);
-									?>
-									<source srcset="<?php echo $thumb1[0]; ?>" media="(min-width: 801px)">
-									<source srcset="<?php echo $thumb2[0]; ?>" media="(min-width: 581px)">
-									<source srcset="<?php echo $thumb3[0]; ?>" media="(max-width: 580px)">
-									<img src="<?php echo $thumb1[0]; ?>">
 								<?php endif; ?>
-							</picture>
-						</a>
-					<?php endif; ?>
-					
-					<div class="container-full home-page">
-						<div class="row home-about">
-							<div class="col-m-53">
-								<h1>
-									About the artist
-								</h1>
-								<h5>
-									Michael azgour
-								</h5>
+								<?php if ($slide['link_to']) : ?>
+									<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
+								<?php endif; ?>
 							</div>
-							<div class="col-m-106">
-								<div class="col-2">
-									<?php the_content(); ?>
-								</div>
-								<a href="<?php esc_url( get_site_url() ) ?>/about-contact#about-artist" class="buttonB">
-									Read More
-								</a>
-							</div>
-						</div>
+						<?php endforeach; ?>
 					</div>
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		<?php elseif (get_field('image_desktop')) : ?>
+			<a href="<?php $thumb_id = get_post_thumbnail_id();
+								echo get_post($thumb_id)->post_content; ?>">
+				<picture>
+					<?php if (get_field('image_desktop') && get_field('image_mobile')) : ?>
+						<source srcset="<?= get_field('image_desktop')['url']; ?>" media="(min-width: 801px)">
+						<source srcset="<?= get_field('image_mobile')['url']; ?>" media="(min-width: 1px)">
+						<img src="<?= get_field('image_desktop')['url']; ?>">
+					<?php else : ?>
+						<?php
+						$thumb1 = wp_get_attachment_image_src($thumb_id, 'full_size', true);
+						$thumb2 = wp_get_attachment_image_src($thumb_id, 'full_sizeM', true);
+						$thumb3 = wp_get_attachment_image_src($thumb_id, 'full_sizeS', true);
+						?>
+						<source srcset="<?php echo $thumb1[0]; ?>" media="(min-width: 801px)">
+						<source srcset="<?php echo $thumb2[0]; ?>" media="(min-width: 581px)">
+						<source srcset="<?php echo $thumb3[0]; ?>" media="(max-width: 580px)">
+						<img src="<?php echo $thumb1[0]; ?>">
+					<?php endif; ?>
+				</picture>
+			</a>
+		<?php endif; ?>
 
-					<!--<div class="container-full home-page">
+		<div class="container-full home-page">
+			<div class="row home-about">
+				<div class="col-m-53">
+					<h1>
+						About the artist
+					</h1>
+					<h5>
+						Michael azgour
+					</h5>
+				</div>
+				<div class="col-m-106">
+					<div class="col-2">
+						<?php the_content(); ?>
+					</div>
+					<a href="<?php esc_url(get_site_url()) ?>/about-contact#about-artist" class="buttonB">
+						Read More
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="container-full home-page">
 						<div class="row home-about">
 							<div class="col-m-53">
 								<h1>
@@ -216,12 +217,12 @@
 						</div>
 					</div>-->
 
-				<?php
-			endwhile;
-		?>
-	<?php endif; ?>
-	<?php wp_reset_query(); ?>
-	<?php quotes_module(); ?>
-	<?php modules_module(); ?>
+	<?php
+	endwhile;
+	?>
+<?php endif; ?>
+<?php wp_reset_query(); ?>
+<?php quotes_module(); ?>
+<?php modules_module(); ?>
 </div>
 <?php get_footer(); ?>

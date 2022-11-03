@@ -89,8 +89,7 @@ body
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 	background: white
-	&.frontPage
-		opacity: 0
+
 img,
 object,
 video,
@@ -110,8 +109,8 @@ picture
 	overflow: hidden
 	margin-bottom: 30px
 
-.video-container iframe,  
-.video-container object,  
+.video-container iframe,
+.video-container object,
 .video-container embed
 	position: absolute
 	top: 0
@@ -119,9 +118,9 @@ picture
 	width: 100%
 	height: 100%
 
-img, 
-iframe, 
-object, 
+img,
+iframe,
+object,
 embed
 	max-width: 100%
 
@@ -348,7 +347,7 @@ textarea
 			text-align: center!important
 			padding: 15px
 			padding-bottom: 30px
-			* 
+			*
 				display: block
 				margin-bottom: 5px
 				margin-top: 5px
@@ -443,12 +442,20 @@ textarea
 		+trans(600ms)
 		svg
 			.circ
-				-webkit-animation: mymove 1.5s  /* Chrome, Safari, Opera */
+				-webkit-animation: mymove 1.5s /* Chrome, Safari, Opera */
 				-webkit-animation-iteration-count: infinite /* Chrome, Safari, Opera */
 				animation: mymove 1.5s
 				animation-iteration-count: infinite
 
-@-webkit-keyframes mymove 
+@-webkit-keyframes mymove
+	0%
+	+transformY(0)
+	50% 
+		+transformY(5px)
+	100%
+		+transformY(0)
+
+@keyframes mymove
 	0%
 		+transformY(0)
 	50% 
@@ -456,17 +463,8 @@ textarea
 	100%
 		+transformY(0)
 
-@keyframes mymove 
-	0%
-		+transformY(0)
-	50% 
-		+transformY(5px)
-	100%
-		+transformY(0)
-
-
-@keyframes draw 
-	to 
+@keyframes draw
+	to
 		stroke-dashoffset: 0
 
 body.frontPage
@@ -764,7 +762,6 @@ nav.main-navigation
 				display: block
 				margin: 7px 0 0 0
 
-
 // .blur
 // 	-webkit-filter: blur(1.5px)
 // 	-moz-filter: blur(1.5px)
@@ -998,7 +995,6 @@ nav.main-navigation.sticky + picture
 			padding-top: 110px
 		&.home-page
 			padding-top: 30px
-
 
 footer
 	// border-top: 2px solid $lgrey
@@ -1299,8 +1295,6 @@ footer
 		#text-4
 			padding-top: 0
 
-
-
 .buttonB
 	border: 1px solid black
 	height: 40px
@@ -1364,7 +1358,7 @@ footer
 				width: 100%!important
 				opacity: 1!important
 				transform: none!important
-		@media(max-width: 47.9375em) 
+		@media(max-width: 47.9375em)
 			font-size: 16px!important
 	&.sold.solded
 		color: $grey
@@ -1642,7 +1636,7 @@ footer
 			margin-bottom: 30px
 	h2
 		font-family: $futuraM
-	&.news 
+	&.news
 		display: flex
 		margin-bottom: 20px
 		margin-left: -20px
@@ -1678,8 +1672,6 @@ footer
 		font-size: 15px
 	@media(max-width: 22.5em)
 		font-size: 14px
-
-		
 
 .the-painting
 	text-align: center
@@ -1799,7 +1791,6 @@ footer
 				width: 100%
 		.news-thumb
 			padding: 25px
-
 
 .news-text
 	h5
@@ -2085,7 +2076,7 @@ footer
 						font-size: 15px
 		&.top
 			margin-top: 0
-			margin-bottom: 10px;
+			margin-bottom: 10px
 
 	h2
 		display: none
@@ -2172,7 +2163,6 @@ footer
 			.nav-previous
 				a
 					margin-right: 28px
-
 
 .modules
 	margin-top: 50px
@@ -2368,7 +2358,7 @@ footer
 
 .the-gallery:first-child
 	border: none
-	padding-top: 70px	
+	padding-top: 70px
 
 .cv-top
 	.container-full
@@ -2396,7 +2386,7 @@ footer
 		h3
 			font-family: $futuraL
 			font-size: 23px
-			margin-bottom: 40px 
+			margin-bottom: 40px
 			span
 				font-size: 16px
 				font-family: $futuraM
@@ -2494,7 +2484,7 @@ span.wpcf7-not-valid-tip
 			margin-right: 10px
 			margin-bottom: 10px
 			max-width: 200px
-			float: left 
+			float: left
 		.submit
 			max-width: 90px
 		textarea
@@ -2733,7 +2723,6 @@ span.wpcf7-not-valid-tip
 .contact-bottom
 	padding-top: 0
 
-
 .grecaptcha-badge
 	visibility: hidden
 
@@ -2793,8 +2782,8 @@ span.wpcf7-not-valid-tip
 	overflow: hidden
 	max-width: 100%
 
-.embed-container iframe, 
-.embed-container object, 
+.embed-container iframe,
+.embed-container object,
 .embed-container embed
 	position: absolute
 	top: 0
