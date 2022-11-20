@@ -49,9 +49,9 @@ $(function () {
   windowURL();
   paintingForm();
   seriesSeparator();
-  // if($('body').hasClass('frontPage')){
-  // 	homeScroll();
-  // }
+  if ($('body').hasClass('frontPage')) {
+    homeScroll();
+  }
   if ($('body').hasClass('page-template-archive-paintings')) {
     $('.sorting')
       .find('ul')
@@ -86,16 +86,16 @@ $(function () {
   }
 });
 $(window).on('load', function () {
-  // if($('body').hasClass('frontPage')){
-  // 	intro();
-  // }
+  if ($('body').hasClass('frontPage')) {
+    intro();
+  }
   showImgs();
 });
 
 $(window).on('load resize', function () {
   showImgs();
   var homeVH = $(window).height();
-  // homeImage();
+  homeImage();
   seriesNameMobile();
   if ($('body').hasClass('frontPage')) {
     setInterval(menuStick, 5);
@@ -106,14 +106,14 @@ $(document).on('scroll', function () {
   if ($(window).width() < 992) {
     menuSlideUp();
   }
-  // homeFade();
-  // if ($(window).width() < 1024) {
-  //   if (document.body.scrollTop > 100) {
-  //     $('.upArrow').css('opacity', '1');
-  //   } else {
-  //     $('.upArrow').css('opacity', '0');
-  //   }
-  // }
+  homeFade();
+  if ($(window).width() < 1024) {
+    if (document.body.scrollTop > 100) {
+      $('.upArrow').css('opacity', '1');
+    } else {
+      $('.upArrow').css('opacity', '0');
+    }
+  }
 });
 
 function windowURL() {
@@ -222,45 +222,45 @@ function menuOpen() {
 }
 
 function homeScroll() {
-  // $(document).on('scroll', function (e) {
-  //   e.preventDefault();
-  //   if (!$('body').hasClass('scrolled')) {
-  //     $('body').addClass('scrolled');
-  //     $('html, body').animate(
-  //       {
-  //         scrollTop: $(window).height(),
-  //       },
-  //       1000
-  //     );
-  //   }
-  // });
-  // $('.home-image').on('click', function (e) {
-  //   e.preventDefault();
-  //   $('body').addClass('scrolled');
-  //   $('html, body').animate(
-  //     {
-  //       scrollTop: $(window).height(),
-  //     },
-  //     1000
-  //   );
-  // });
+  $(document).on('scroll', function (e) {
+    e.preventDefault();
+    if (!$('body').hasClass('scrolled')) {
+      $('body').addClass('scrolled');
+      $('html, body').animate(
+        {
+          scrollTop: $(window).height(),
+        },
+        1000
+      );
+    }
+  });
+  $('.home-image').on('click', function (e) {
+    e.preventDefault();
+    $('body').addClass('scrolled');
+    $('html, body').animate(
+      {
+        scrollTop: $(window).height(),
+      },
+      1000
+    );
+  });
 }
 
 function intro() {
-  // setTimeout(function () {
-  //   $('.overlayHome').addClass('hide');
-  // }, 750);
-  // setTimeout(function () {
-  //   $('.logo').addClass('fill');
-  //   $('.logo').addClass('slide');
-  // }, 2200);
-  // $('html, body').css('opacity', '1');
-  // setTimeout(function () {
-  //   $('.logo').addClass('animate');
-  // }, 1000);
-  // setTimeout(function () {
-  //   $('.scroll').css('opacity', '1');
-  // }, 3200);
+  setTimeout(function () {
+    $('.overlayHome').addClass('hide');
+  }, 750);
+  setTimeout(function () {
+    $('.logo').addClass('fill');
+    $('.logo').addClass('slide');
+  }, 2200);
+  $('html, body').css('opacity', '1');
+  setTimeout(function () {
+    $('.logo').addClass('animate');
+  }, 1000);
+  setTimeout(function () {
+    $('.scroll').css('opacity', '1');
+  }, 3200);
 }
 
 function sorting() {
@@ -350,17 +350,17 @@ function menuSlideUp() {
 }
 
 function homeFade() {
-  // if ($(window).width() > 992) {
-  //   var newScroll = document.body.scrollTop;
-  //   var scrollDiff = newScroll - lastScroll;
-  //   if (newScroll <= homeVH && scrollDiff >= homeVH / 100) {
-  //     var one = 1;
-  //     var newOp = one - scrollDiff / (homeVH - 100);
-  //     $('.home-image').css({ opacity: '' + newOp + '' });
-  //   }
-  // } else {
-  //   $('.home-image').css({ opacity: '1' });
-  // }
+  if ($(window).width() > 992) {
+    var newScroll = document.body.scrollTop;
+    var scrollDiff = newScroll - lastScroll;
+    if (newScroll <= homeVH && scrollDiff >= homeVH / 100) {
+      var one = 1;
+      var newOp = one - scrollDiff / (homeVH - 100);
+      $('.home-image').css({ opacity: '' + newOp + '' });
+    }
+  } else {
+    $('.home-image').css({ opacity: '1' });
+  }
 }
 
 function paintingForm() {
