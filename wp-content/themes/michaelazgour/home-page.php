@@ -104,7 +104,7 @@
 					<p>Michael Azgour | Artist</p>
 				</div>
 			</div>
-			<?php
+			<?php /*
 			if (!wp_is_mobile()) : ?>
 				<div class="scroll">
 					<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="56px" height="65px" viewBox="0 0 56 65" enable-background="new 0 0 56 65" xml:space="preserve">
@@ -124,7 +124,7 @@
 										C31.7,56,29.7,57.9,29.7,60.5 M41.9,56.2v8.6h5.6v-1.4h-4.1v-7.2H41.9z M50.2,56.2v8.6h5.6v-1.4h-4.1v-7.2H50.2z" />
 					</svg>
 				</div>
-			<?php endif;
+			<?php endif; */
 			?>
 		</div>
 
@@ -178,7 +178,7 @@
 		</div>
 
 		<?php if (get_field('painting_pages_highlight') && have_rows('painting_pages_highlight')) : ?>
-			<div class="container-full news">
+			<div class="container-full news home-page">
 				<?php while (have_rows('painting_pages_highlight')) : the_row(); ?>
 					<div class="row the-news">
 						<div class="col-xl-6 col-l-7 col-xs-16 news-thumb">
