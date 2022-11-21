@@ -139,29 +139,20 @@
 		<?php endif; ?>
 
 		<?php if (get_field('slider')) : ?>
-			<div class="home-swiper" style="position: relative;">
-				<!-- Slider main container -->
-				<div class="swiper-container">
-					<!-- Additional required wrapper -->
-					<div class="swiper-wrapper">
-						<!-- Slides -->
-						<?php foreach (get_field('slider') as $slide) : ?>
-							<div class="swiper-slide">
-								<img src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
-								<?php if ($slide['text']) : ?>
-									<div class="swiper-slide-text">
-										<?php echo $slide['text']; ?>
-									</div>
-								<?php endif; ?>
-								<?php if ($slide['link_to']) : ?>
-									<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
-								<?php endif; ?>
+			<div class="container-full home-page">
+				<?php foreach (get_field('slider') as $slide) : ?>
+					<div style="margin-bottom: 60px;">
+						<img src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
+						<?php if ($slide['text']) : ?>
+							<div class="swiper-slide-text" style="text-align: center;">
+								<?php echo $slide['text']; ?>
 							</div>
-						<?php endforeach; ?>
+						<?php endif; ?>
+						<?php if ($slide['link_to']) : ?>
+							<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
+						<?php endif; ?>
 					</div>
-					<!-- If we need pagination -->
-					<div class="swiper-pagination"></div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>
 
