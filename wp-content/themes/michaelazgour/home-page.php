@@ -132,17 +132,17 @@
 
 
 		<?php if (get_post_thumbnail_id()) : ?>
-			<div class="homepage-single-image">
-				<?php $thumb1 = wp_get_attachment_image_src(get_post_thumbnail_id(), 'img_rotator', true); ?>
-				<img src="<?php echo $thumb1[0]; ?>">
+			<div class="container-full home-page" style="margin-bottom: 70px;">
+				<?php $thumb1 = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true); ?>
+				<img data-src="<?php echo $thumb1[0]; ?>">
 			</div>
 		<?php endif; ?>
 
 		<?php if (get_field('slider')) : ?>
 			<div class="container-full home-page">
 				<?php foreach (get_field('slider') as $slide) : ?>
-					<div style="margin-bottom: 60px;">
-						<img src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
+					<div style="margin-bottom: 90px;">
+						<img data-src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
 						<?php if ($slide['text']) : ?>
 							<div class="swiper-slide-text" style="text-align: center;">
 								<?php echo $slide['text']; ?>
@@ -178,7 +178,7 @@
 		</div>
 
 		<?php if (get_field('painting_pages_highlight') && have_rows('painting_pages_highlight')) : ?>
-			<div class="container-full news home-page">
+			<div class="container-full news home-page" style="margin-bottom: 110px;">
 				<?php while (have_rows('painting_pages_highlight')) : the_row(); ?>
 					<div class="row the-news">
 						<div class="col-xl-6 col-l-7 col-xs-16 news-thumb">
@@ -197,7 +197,7 @@
 									<source srcset="<?php echo $thumb_2[0]; ?>" media="(min-width: 541px)">
 									<source srcset="<?php echo $thumb_3[0]; ?>" media="(min-width: 448px)">
 									<source srcset="<?php echo $thumb_4[0]; ?>" media="(max-width: 447px)">
-									<img class="bg-cover" src="<?php echo $thumb_1[0]; ?>">
+									<img class="bg-cover" data-src="<?php echo $thumb_1[0]; ?>">
 								</picture>
 							</a>
 						</div>
