@@ -132,16 +132,18 @@
 
 
 		<?php if (get_post_thumbnail_id()) : ?>
-			<div class="container-full home-page" style="margin-bottom: 70px;">
+			<div class="container-full home-page first-one">
 				<?php $thumb1 = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true); ?>
-				<img data-src="<?php echo $thumb1[0]; ?>">
+				<div class="responsive-img-ratio">
+					<img data-src="<?php echo $thumb1[0]; ?>">
+				</div>
 			</div>
 		<?php endif; ?>
 
 		<?php if (get_field('slider')) : ?>
 			<div class="container-full home-page">
 				<?php foreach (get_field('slider') as $slide) : ?>
-					<div style="margin-bottom: 90px;">
+					<div class="stacked-imgs">
 						<img data-src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
 						<?php if ($slide['text']) : ?>
 							<div class="swiper-slide-text" style="text-align: center;">
@@ -178,7 +180,7 @@
 		</div>
 
 		<?php if (get_field('painting_pages_highlight') && have_rows('painting_pages_highlight')) : ?>
-			<div class="container-full news home-page" style="margin-bottom: 110px;">
+			<div class="container-full highlights">
 				<?php while (have_rows('painting_pages_highlight')) : the_row(); ?>
 					<div class="row the-news">
 						<div class="col-xl-6 col-l-7 col-xs-16 news-thumb">

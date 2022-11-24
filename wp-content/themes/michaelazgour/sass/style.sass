@@ -972,18 +972,59 @@ nav.main-navigation.sticky + picture
 	@media(max-width: 70em)
 		padding-top: 70px
 
+.responsive-img-ratio
+	display: block
+	width: 100%
+	height: auto
+	position: relative
+	overflow: hidden
+	padding: 41.6666666667% 0 0 0
+	img
+		display: block
+		position: absolute
+		top: 50%
+		bottom: 0
+		left: 50%
+		right: 0
+		transform: translate(-50%, -50%)
+
 .container-full
 	padding-top: 160px
 	position: relative
 	z-index: 9
 	&.home-page
 		padding-top: 70px
+		.stacked-imgs
+			margin-bottom: 90px
+			@media(max-width: 991px)
+				margin-bottom: 70px
+			@media(max-width: 767px)
+				margin-bottom: 50px
+			@media(max-width: 575px)
+				margin-bottom: 30px
+		&.first-one
+			margin-bottom: 70px
+			padding-top: 0
+			@media(max-width: 991px)
+				margin-bottom: 50px
+			@media(max-width: 767px)
+				margin-bottom: 30px
+			@media(max-width: 575px)
+				margin-bottom: 15px
 	&.footer
 		padding: 0
 	&.news-single
 		padding-top: 130px
 	&.paintings
 		padding-top: 150px
+	&.highlights
+		margin-bottom: 110px
+		@media(max-width: 991px)
+			margin-bottom: 90px
+		@media(max-width: 767px)
+			margin-bottom: 70px
+		@media(max-width: 575px)
+			margin-bottom: 50px
 	@media(max-width: 100em)
 		padding-top: 140px
 		&.paintings
