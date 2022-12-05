@@ -260,17 +260,12 @@ function intro() {
   }, 1000);
   setTimeout(function () {
     // $('.scroll').css('opacity', '1');
-    $('html, body').animate(
-      {
-        scrollTop: $(window).height(),
-      },
-      1000
-    );
+    $('.home-image').slideUp(1000);
   }, 3200);
-  setTimeout(function () {
-    // $('.scroll').css('opacity', '1');
-    $('body').addClass('scrolled');
-  }, 5000);
+  // setTimeout(function () {
+  //   // $('.scroll').css('opacity', '1');
+  //   $('body').addClass('scrolled');
+  // }, 5000);
 }
 
 function sorting() {
