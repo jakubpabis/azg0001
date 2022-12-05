@@ -143,7 +143,7 @@
 		<?php if (get_field('slider')) : ?>
 			<div class="container-full home-page">
 				<?php foreach (get_field('slider') as $slide) : ?>
-					<div class="stacked-imgs">
+					<div class="stacked-imgs" style="position: relative;">
 						<img data-src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
 						<?php if ($slide['text']) : ?>
 							<div class="swiper-slide-text" style="text-align: center;">
