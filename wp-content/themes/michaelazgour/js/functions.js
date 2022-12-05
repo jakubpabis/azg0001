@@ -95,7 +95,7 @@ $(window).on('load', function () {
 $(window).on('load resize', function () {
   showImgs();
   var homeVH = $(window).height();
-  homeImage();
+  //homeImage();
   seriesNameMobile();
   if ($('body').hasClass('frontPage')) {
     setInterval(menuStick, 5);
@@ -127,9 +127,9 @@ function windowURL() {
     });
 }
 
-function homeImage() {
-  $('.home-image').height($(window).height());
-}
+// function homeImage() {
+//   $('.home-image').height($(window).height());
+// }
 
 function goTop() {
   $('.goTop').on('click', function (e) {
