@@ -247,6 +247,13 @@ function homeScroll() {
 }
 
 function intro() {
+  $('html, body').scrollTop(0);
+  setTimeout(function () {
+    $('html, body').scrollTop(0);
+  }, 50);
+  setTimeout(function () {
+    $('html, body').scrollTop(0);
+  }, 100);
   setTimeout(function () {
     $('.overlayHome').addClass('hide');
   }, 750);
