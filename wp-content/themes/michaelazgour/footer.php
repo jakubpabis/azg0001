@@ -124,7 +124,7 @@
 				</div>
 				<div class="col-s-7 col-xs-16 right">
 					<p>
-						Site by: <a href="http://www.millarc.com" target="_blank">Millarc Visual Communication</a>
+						Made by: <a href="https://jakubpabis.com" target="_blank">Jakub Pabis</a>
 					</p>
 				</div>
 			</div>
