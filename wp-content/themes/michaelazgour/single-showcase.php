@@ -10,12 +10,18 @@ Template Name: single-showcase.php
 		border-color: black !important;
 	}
 
-	.the-quote * {
+	.the-quote>div {
 		max-width: 100% !important;
 		margin: 0 30px !important;
 		text-align: left !important;
 		color: black !important;
 		padding: 50px 0 !important;
+	}
+
+	.the-quote * {
+		text-align: left !important;
+		color: black !important;
+		max-width: 100% !important;
 	}
 </style>
 <?php if (post_password_required()) : ?>
@@ -42,7 +48,9 @@ Template Name: single-showcase.php
 			<?php endif; ?>
 			<?php if (get_field('text')) : ?>
 				<div class="col-xs-16 the-quote">
-					<?php echo get_field('text'); ?>
+					<div>
+						<?php echo get_field('text'); ?>
+					</div>
 				</div>
 			<?php endif; ?>
 			<?php while (have_posts()) : the_post(); ?>
