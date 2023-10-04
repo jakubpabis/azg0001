@@ -18,10 +18,11 @@ Template Name: single-showcase.php
 <?php if (!post_password_required()) : ?>
 	<div class="container-full paintings">
 		<?php if (have_posts()) : ?>
-			<?php if (get_field('title')) : ?>
+			<?php $the_title = get_field('title');
+			if ($the_title) : ?>
 				<div class="row" data-series="Available Works: Perceptualism">
 					<div class="col-m-53 col-xs-16 series-name-mobile">
-						<h2 style="margin:0;"><?php echo get_field('title'); ?></h2>
+						<h2 style="margin:0;"><?php echo $the_title; ?></h2>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -43,7 +44,7 @@ Template Name: single-showcase.php
 					$metaC = get_post_meta($case['showcase'], $paintings_mb->get_the_id(), TRUE);
 					?>
 					<?php if ($case['showcase'] !== "none") : ?>
-						<div class="row" data-series-old="<?php the_title(); ?>">
+						<div class="row" data-series="<?php echo $the_title ? null : the_title(); ?>">
 							<div class="col-xs-16 the-painting">
 								<img src="<?php echo $thumb_c[0]; ?>" alt="">
 								<div class="credits">
