@@ -27,6 +27,24 @@ Template Name: single-showcase.php
 		padding: 10px 0 !important;
 		margin: 0 !important;
 	}
+
+	@media (max-width: 992px) {
+		.container-full.paintings {
+			padding-top: 80px !important;
+		}
+	}
+
+	@media (max-width: 50em) {
+		.container-full.paintings {
+			padding-top: 80px !important;
+		}
+	}
+
+	@media (max-width: 450px) {
+		.container-full.paintings {
+			padding-top: 90px !important;
+		}
+	}
 </style>
 <?php if (post_password_required()) : ?>
 	<div class="container-full private-page">
@@ -41,6 +59,7 @@ Template Name: single-showcase.php
 <?php endif; ?>
 <?php if (!post_password_required()) : ?>
 	<div class="container-full paintings">
+
 		<?php if (have_posts()) : ?>
 			<?php $the_title = get_field('title');
 			if ($the_title) : ?>
