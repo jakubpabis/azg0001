@@ -7,14 +7,15 @@ Template Name: single-showcase.php
 <style>
 	.the-quote {
 		margin-top: 0 !important;
+		border-color: black !important;
 	}
 
 	.the-quote * {
 		max-width: 100% !important;
-		margin: 0 !important;
+		margin: 0 30px !important;
 		text-align: left !important;
 		color: black !important;
-		padding: 60px 0 !important;
+		padding: 50px 0 !important;
 	}
 </style>
 <?php if (post_password_required()) : ?>
