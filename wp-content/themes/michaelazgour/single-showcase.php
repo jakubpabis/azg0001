@@ -3,7 +3,7 @@
 Template Name: single-showcase.php
 */
 ?>
-
+<?php global $title; ?>
 <?php get_header('showcase'); ?>
 <?php if (post_password_required()) : ?>
 	<div class="container-full private-page">
@@ -21,7 +21,7 @@ Template Name: single-showcase.php
 		<?php if (have_posts()) : ?>
 			<div class="row" data-series="Available Works: Perceptualism">
 				<div class="col-m-53 col-xs-16 series-name-mobile">
-					<h2 style="margin:0;"><?php $title = ''; echo $title; ?></h2>
+					<h2 style="margin:0;"><?php echo $title; ?></h2>
 				</div>
 			</div>
 			<?php if(get_field('text')): ?>
