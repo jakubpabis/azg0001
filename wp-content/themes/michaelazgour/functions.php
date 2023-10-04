@@ -759,111 +759,113 @@ function modules_module()
 	//var_dump($module1);
 	?>
 	<?php if ($module1 !== "none" || $module2 !== "none" || $module3 !== "none") : ?>
-		<div class="row modules">
-			<div class="col-s-53 col-xs-16 the-module">
-				<?php
-				if ($module1 !== "none") {
-					$post_m1 = get_post($module1);
-					$title_m1 = $post_m1->post_title;
-					$text_m1 = $post_m1->post_content;
-					$metaL1 = get_post_meta($module1, '_my_module_link', TRUE);
-					$metaNT1 = get_post_meta($module1, '_my_is_new_tab', TRUE);
-					$thumb_m1 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb');
-					$thumb_m12 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb2');
-					$thumb_m13 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb3');
-					$thumb_m14 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb4');
-					$thumb_m15 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb5');
-					$thumb_m16 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb6');
-				?>
-					<picture>
-						<source srcset="<?php echo $thumb_m1[0]; ?>" media="(min-width: 1441px)">
-						<source srcset="<?php echo $thumb_m12[0]; ?>" media="(min-width: 1281px)">
-						<source srcset="<?php echo $thumb_m13[0]; ?>" media="(min-width: 1025px)">
-						<source srcset="<?php echo $thumb_m14[0]; ?>" media="(min-width: 801px)">
-						<source srcset="<?php echo $thumb_m15[0]; ?>" media="(min-width: 641px)">
-						<source srcset="<?php echo $thumb_m16[0]; ?>" media="(min-width: 581px)">
-						<source srcset="<?php echo $thumb_m14[0]; ?>" media="(max-width: 340px)">
-						<source srcset="<?php echo $thumb_m13[0]; ?>" media="(max-width: 420px)">
-						<img src="<?php echo $thumb_m1[0]; ?>">
-					</picture>
-					<h2><?php echo $title_m1; ?></h2>
-					<p><?php echo $text_m1; ?></p>
-					<a href="<?php echo $metaL1; ?>" <?php if ($metaNT1) {
-																							echo 'target="_blank"';
-																						} ?>></a>
-				<?php
-				}
-				?>
-			</div>
-			<div class="col-s-53 col-xs-16 the-module">
-				<?php
-				if ($module2 !== "none") {
-					$post_m2 = get_post($module2);
-					$title_m2 = $post_m2->post_title;
-					$text_m2 = $post_m2->post_content;
-					$metaL2 = get_post_meta($module2, '_my_module_link', TRUE);
-					$metaNT2 = get_post_meta($module2, '_my_is_new_tab', TRUE);
-					$thumb_m2 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb');
-					$thumb_m22 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb2');
-					$thumb_m23 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb3');
-					$thumb_m24 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb4');
-					$thumb_m25 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb5');
-					$thumb_m26 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb6');
-				?>
-					<picture>
-						<source srcset="<?php echo $thumb_m2[0]; ?>" media="(min-width: 1441px)">
-						<source srcset="<?php echo $thumb_m22[0]; ?>" media="(min-width: 1281px)">
-						<source srcset="<?php echo $thumb_m23[0]; ?>" media="(min-width: 1025px)">
-						<source srcset="<?php echo $thumb_m24[0]; ?>" media="(min-width: 801px)">
-						<source srcset="<?php echo $thumb_m25[0]; ?>" media="(min-width: 641px)">
-						<source srcset="<?php echo $thumb_m26[0]; ?>" media="(min-width: 581px)">
-						<source srcset="<?php echo $thumb_m24[0]; ?>" media="(max-width: 340px)">
-						<source srcset="<?php echo $thumb_m23[0]; ?>" media="(max-width: 420px)">
-						<img src="<?php echo $thumb_m2[0]; ?>">
-					</picture>
-					<h2><?php echo $title_m2; ?></h2>
-					<p><?php echo $text_m2; ?></p>
-					<a href="<?php echo $metaL2; ?>" <?php if ($metaNT2) {
-																							echo 'target="_blank"';
-																						} ?>></a>
-				<?php
-				}
-				?>
-			</div>
-			<div class="col-s-53 col-xs-16 the-module">
-				<?php
-				if ($module3 !== "none") {
-					$post_m3 = get_post($module3);
-					$title_m3 = $post_m3->post_title;
-					$text_m3 = $post_m3->post_content;
-					$metaL3 = get_post_meta($module3, '_my_module_link', TRUE);
-					$metaNT3 = get_post_meta($module3, '_my_is_new_tab', TRUE);
-					$thumb_m3 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb');
-					$thumb_m32 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb2');
-					$thumb_m33 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb3');
-					$thumb_m34 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb4');
-					$thumb_m35 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb5');
-					$thumb_m36 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb6');
-				?>
-					<picture>
-						<source srcset="<?php echo $thumb_m3[0]; ?>" media="(min-width: 1441px)">
-						<source srcset="<?php echo $thumb_m32[0]; ?>" media="(min-width: 1281px)">
-						<source srcset="<?php echo $thumb_m33[0]; ?>" media="(min-width: 1025px)">
-						<source srcset="<?php echo $thumb_m34[0]; ?>" media="(min-width: 801px)">
-						<source srcset="<?php echo $thumb_m35[0]; ?>" media="(min-width: 641px)">
-						<source srcset="<?php echo $thumb_m36[0]; ?>" media="(min-width: 581px)">
-						<source srcset="<?php echo $thumb_m34[0]; ?>" media="(max-width: 340px)">
-						<source srcset="<?php echo $thumb_m33[0]; ?>" media="(max-width: 420px)">
-						<img src="<?php echo $thumb_m3[0]; ?>">
-					</picture>
-					<h2><?php echo $title_m3; ?></h2>
-					<p><?php echo $text_m3; ?></p>
-					<a href="<?php echo $metaL3; ?>" <?php if ($metaNT3) {
-																							echo 'target="_blank"';
-																						} ?>></a>
-				<?php
-				}
-				?>
+		<div class="container-full">
+			<div class="row modules">
+				<div class="col-s-53 col-xs-16 the-module">
+					<?php
+					if ($module1 !== "none") {
+						$post_m1 = get_post($module1);
+						$title_m1 = $post_m1->post_title;
+						$text_m1 = $post_m1->post_content;
+						$metaL1 = get_post_meta($module1, '_my_module_link', TRUE);
+						$metaNT1 = get_post_meta($module1, '_my_is_new_tab', TRUE);
+						$thumb_m1 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb');
+						$thumb_m12 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb2');
+						$thumb_m13 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb3');
+						$thumb_m14 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb4');
+						$thumb_m15 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb5');
+						$thumb_m16 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m1), 'module_thumb6');
+					?>
+						<picture>
+							<source srcset="<?php echo $thumb_m1[0]; ?>" media="(min-width: 1441px)">
+							<source srcset="<?php echo $thumb_m12[0]; ?>" media="(min-width: 1281px)">
+							<source srcset="<?php echo $thumb_m13[0]; ?>" media="(min-width: 1025px)">
+							<source srcset="<?php echo $thumb_m14[0]; ?>" media="(min-width: 801px)">
+							<source srcset="<?php echo $thumb_m15[0]; ?>" media="(min-width: 641px)">
+							<source srcset="<?php echo $thumb_m16[0]; ?>" media="(min-width: 581px)">
+							<source srcset="<?php echo $thumb_m14[0]; ?>" media="(max-width: 340px)">
+							<source srcset="<?php echo $thumb_m13[0]; ?>" media="(max-width: 420px)">
+							<img src="<?php echo $thumb_m1[0]; ?>">
+						</picture>
+						<h2><?php echo $title_m1; ?></h2>
+						<p><?php echo $text_m1; ?></p>
+						<a href="<?php echo $metaL1; ?>" <?php if ($metaNT1) {
+																								echo 'target="_blank"';
+																							} ?>></a>
+					<?php
+					}
+					?>
+				</div>
+				<div class="col-s-53 col-xs-16 the-module">
+					<?php
+					if ($module2 !== "none") {
+						$post_m2 = get_post($module2);
+						$title_m2 = $post_m2->post_title;
+						$text_m2 = $post_m2->post_content;
+						$metaL2 = get_post_meta($module2, '_my_module_link', TRUE);
+						$metaNT2 = get_post_meta($module2, '_my_is_new_tab', TRUE);
+						$thumb_m2 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb');
+						$thumb_m22 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb2');
+						$thumb_m23 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb3');
+						$thumb_m24 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb4');
+						$thumb_m25 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb5');
+						$thumb_m26 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m2), 'module_thumb6');
+					?>
+						<picture>
+							<source srcset="<?php echo $thumb_m2[0]; ?>" media="(min-width: 1441px)">
+							<source srcset="<?php echo $thumb_m22[0]; ?>" media="(min-width: 1281px)">
+							<source srcset="<?php echo $thumb_m23[0]; ?>" media="(min-width: 1025px)">
+							<source srcset="<?php echo $thumb_m24[0]; ?>" media="(min-width: 801px)">
+							<source srcset="<?php echo $thumb_m25[0]; ?>" media="(min-width: 641px)">
+							<source srcset="<?php echo $thumb_m26[0]; ?>" media="(min-width: 581px)">
+							<source srcset="<?php echo $thumb_m24[0]; ?>" media="(max-width: 340px)">
+							<source srcset="<?php echo $thumb_m23[0]; ?>" media="(max-width: 420px)">
+							<img src="<?php echo $thumb_m2[0]; ?>">
+						</picture>
+						<h2><?php echo $title_m2; ?></h2>
+						<p><?php echo $text_m2; ?></p>
+						<a href="<?php echo $metaL2; ?>" <?php if ($metaNT2) {
+																								echo 'target="_blank"';
+																							} ?>></a>
+					<?php
+					}
+					?>
+				</div>
+				<div class="col-s-53 col-xs-16 the-module">
+					<?php
+					if ($module3 !== "none") {
+						$post_m3 = get_post($module3);
+						$title_m3 = $post_m3->post_title;
+						$text_m3 = $post_m3->post_content;
+						$metaL3 = get_post_meta($module3, '_my_module_link', TRUE);
+						$metaNT3 = get_post_meta($module3, '_my_is_new_tab', TRUE);
+						$thumb_m3 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb');
+						$thumb_m32 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb2');
+						$thumb_m33 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb3');
+						$thumb_m34 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb4');
+						$thumb_m35 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb5');
+						$thumb_m36 = wp_get_attachment_image_src(get_post_thumbnail_id($post_m3), 'module_thumb6');
+					?>
+						<picture>
+							<source srcset="<?php echo $thumb_m3[0]; ?>" media="(min-width: 1441px)">
+							<source srcset="<?php echo $thumb_m32[0]; ?>" media="(min-width: 1281px)">
+							<source srcset="<?php echo $thumb_m33[0]; ?>" media="(min-width: 1025px)">
+							<source srcset="<?php echo $thumb_m34[0]; ?>" media="(min-width: 801px)">
+							<source srcset="<?php echo $thumb_m35[0]; ?>" media="(min-width: 641px)">
+							<source srcset="<?php echo $thumb_m36[0]; ?>" media="(min-width: 581px)">
+							<source srcset="<?php echo $thumb_m34[0]; ?>" media="(max-width: 340px)">
+							<source srcset="<?php echo $thumb_m33[0]; ?>" media="(max-width: 420px)">
+							<img src="<?php echo $thumb_m3[0]; ?>">
+						</picture>
+						<h2><?php echo $title_m3; ?></h2>
+						<p><?php echo $text_m3; ?></p>
+						<a href="<?php echo $metaL3; ?>" <?php if ($metaNT3) {
+																								echo 'target="_blank"';
+																							} ?>></a>
+					<?php
+					}
+					?>
+				</div>
 			</div>
 		</div>
 	<?php endif;
@@ -943,7 +945,7 @@ function quotes_module()
 	$quote = $metaQ['quote'];
 
 	if ($quote !== "none" && $quote !== null && $quote) : ?>
-
+	<div class="container-full">
 		<div class="col-xs-16 the-quote">
 			<?php
 			$post_Q = get_post($quote);
@@ -951,7 +953,7 @@ function quotes_module()
 			?>
 			<p><?php echo $text_Q ?></p>
 		</div>
-
+	</div>
 <?php endif;
 }
 
