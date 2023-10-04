@@ -274,7 +274,7 @@ $testimonials_query = new WP_Query($args);
 			<?php endif; ?>
 			<?php wp_reset_query(); ?>
 		</div>
-		<div class="container-full contact-bottom">
+		<div class="contact-bottom">
 			<?php quotes_module(); ?>
 			<?php modules_module(); ?>
 		</div>

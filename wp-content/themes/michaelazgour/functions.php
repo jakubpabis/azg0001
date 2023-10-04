@@ -944,14 +944,14 @@ function quotes_module()
 	$metaQ = get_post_meta(get_the_ID(), $quotes_mb->get_the_id(), TRUE);
 	$quote = $metaQ['quote'];
 
-	if ($quote !== "none" && $quote !== null && $quote) : ?>
+	if ($quote && $quote !== "none" && $quote !== null && $quote) : ?>
 	<div class="container-full home-page" style="margin-bottom:0; padding-top:0;">
 		<div class="col-xs-16 the-quote">
 			<?php
 			$post_Q = get_post($quote);
 			$text_Q = $post_Q->post_content;
 			?>
-			<p><?php echo $text_Q ?></p>
+			<p><?php echo $text_Q; ?></p>
 		</div>
 	</div>
 <?php endif;
