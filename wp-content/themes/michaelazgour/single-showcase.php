@@ -19,6 +19,11 @@ Template Name: single-showcase.php
 <?php if (!post_password_required()) : ?>
 	<div class="container-full paintings">
 		<?php if (have_posts()) : ?>
+			<?php if(get_field('text')): ?>
+			<div class="col-xs-16 the-quote">
+				<?php echo get_field('text'); ?>
+			</div>
+			<?php endif; ?>
 			<?php while (have_posts()) : the_post(); ?>
 				<?php
 				global $showcase_input_mb;
