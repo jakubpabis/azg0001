@@ -759,7 +759,7 @@ function modules_module()
 	//var_dump($module1);
 	?>
 	<?php if ($module1 !== "none" || $module2 !== "none" || $module3 !== "none") : ?>
-		<div class="container-full">
+		<div class="container-full home-page" style="margin-bottom:0; padding-top:0;">
 			<div class="row modules">
 				<div class="col-s-53 col-xs-16 the-module">
 					<?php
@@ -945,7 +945,7 @@ function quotes_module()
 	$quote = $metaQ['quote'];
 
 	if ($quote !== "none" && $quote !== null && $quote) : ?>
-	<div class="container-full">
+	<div class="container-full home-page" style="margin-bottom:0; padding-top:0;">
 		<div class="col-xs-16 the-quote">
 			<?php
 			$post_Q = get_post($quote);
