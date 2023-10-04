@@ -8,6 +8,8 @@ Template Name: single-showcase.php
 	.the-quote {
 		margin-top: 0 !important;
 		border-color: black !important;
+		position: relative !important;
+		z-index: 99 !important;
 	}
 
 	.the-quote>div {
