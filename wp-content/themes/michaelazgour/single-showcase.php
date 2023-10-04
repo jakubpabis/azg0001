@@ -21,7 +21,7 @@ Template Name: single-showcase.php
 		<?php if (have_posts()) : ?>
 			<div class="row" data-series="Available Works: Perceptualism">
 				<div class="col-m-53 col-xs-16 series-name-mobile">
-					<h2 style="margin:0;"><?php echo $title; ?></h2>
+					<h2 style="margin:0;"><?php global $title; echo $title; ?></h2>
 				</div>
 			</div>
 			<?php if(get_field('text')): ?>
@@ -42,7 +42,7 @@ Template Name: single-showcase.php
 					$metaC = get_post_meta($case['showcase'], $paintings_mb->get_the_id(), TRUE);
 					?>
 					<?php if ($case['showcase'] !== "none") : ?>
-						<?php $title = get_the_title(); ?>
+						<?php global $title; $title = get_the_title(); ?>
 						<div class="row" data-series-old="<?php the_title(); ?>">
 							<div class="col-xs-16 the-painting">
 								<img src="<?php echo $thumb_c[0]; ?>" alt="">
