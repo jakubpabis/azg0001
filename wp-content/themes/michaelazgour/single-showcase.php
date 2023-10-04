@@ -20,10 +20,15 @@ Template Name: single-showcase.php
 	<div class="container-full paintings">
 		<?php if (have_posts()) : ?>
 			<?php if(get_field('text')): ?>
-			<div class="col-xs-16 the-quote">
-				<?php echo get_field('text'); ?>
-			</div>
+				<div class="col-xs-16 the-quote">
+					<?php echo get_field('text'); ?>
+				</div>
 			<?php endif; ?>
+			<div class="row" data-series="Available Works: Perceptualism">
+				<div class="col-m-53 col-xs-16 series-name-mobile">
+					<h2 style="margin:0;"><?php $title = ''; echo $title; ?></h2>
+				</div>
+			</div>
 			<?php while (have_posts()) : the_post(); ?>
 				<?php
 				global $showcase_input_mb;
@@ -37,7 +42,8 @@ Template Name: single-showcase.php
 					$metaC = get_post_meta($case['showcase'], $paintings_mb->get_the_id(), TRUE);
 					?>
 					<?php if ($case['showcase'] !== "none") : ?>
-						<div class="row" data-series="<?php the_title(); ?>">
+						<?php $title = get_the_title(); ?>
+						<div class="row" data-series-old="<?php the_title(); ?>">
 							<div class="col-xs-16 the-painting">
 								<img src="<?php echo $thumb_c[0]; ?>" alt="">
 								<div class="credits">
