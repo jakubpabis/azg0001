@@ -14,6 +14,7 @@ Template Name: single-showcase.php
 		margin: 0 !important;
 		text-align: left !important;
 		color: black !important;
+		padding: 60px 0 !important;
 	}
 </style>
 <?php if (post_password_required()) : ?>
