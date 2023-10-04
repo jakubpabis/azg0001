@@ -24,6 +24,8 @@ Template Name: single-showcase.php
 		text-align: left !important;
 		color: black !important;
 		max-width: 100% !important;
+		padding: 10px 0 !important;
+		margin: 0 !important;
 	}
 </style>
 <?php if (post_password_required()) : ?>
