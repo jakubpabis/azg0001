@@ -6,14 +6,14 @@ Template Name: single-showcase.php
 <?php get_header('showcase'); ?>
 <style>
 	.the-quote {
-		margin-top: 0;
+		margin-top: 0 !important;
 	}
 
 	.the-quote * {
-		max-width: 100%;
-		margin: 0;
-		text-align: left;
-		color: black;
+		max-width: 100% !important;
+		margin: 0 !important;
+		text-align: left !important;
+		color: black !important;
 	}
 </style>
 <?php if (post_password_required()) : ?>
