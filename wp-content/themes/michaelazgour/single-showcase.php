@@ -4,6 +4,18 @@ Template Name: single-showcase.php
 */
 ?>
 <?php get_header('showcase'); ?>
+<style>
+	.the-quote {
+		margin-top: 0;
+	}
+
+	.the-quote * {
+		max-width: 100%;
+		margin: 0;
+		text-align: left;
+		color: black;
+	}
+</style>
 <?php if (post_password_required()) : ?>
 	<div class="container-full private-page">
 		<div class="pass-cont">
