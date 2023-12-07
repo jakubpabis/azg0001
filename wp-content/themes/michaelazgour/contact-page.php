@@ -62,6 +62,23 @@
 			</div>
 		</div>
 	</div>
+	<?php if (get_field('title_art') || get_field('sub_title_art') || get_field('content_art')) : ?>
+		<div id="art-education" class="row about">
+			<div class="col-l-53">
+				<h1><?php echo get_field('title_art'); ?></h1>
+				<h5><?php echo get_field('sub_title_art'); ?></h5>
+			</div>
+			<div class="col-l-106">
+				<div class="col-2">
+					<?php
+					$art = get_field('content_art');
+					//echo apply_filters('meta_content', $art);
+					echo $art;
+					?>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 	<?php
 			$argsV = array(
 				'post_type' => 'videos',
