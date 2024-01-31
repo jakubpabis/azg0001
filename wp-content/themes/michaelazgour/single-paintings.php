@@ -51,8 +51,10 @@
 				<div class="row">
 					<div class="col-l-3"></div>
 					<?php if ($sold) : ?>
-						<div class="buttonB sold solded">
-							Collected
+						<div class="col-l-10 col-xs-16">
+							<div class="buttonB sold solded">
+								Collected
+							</div>
 						</div>
 					<?php else : ?>
 						<div class="col-l-10 col-xs-16">
