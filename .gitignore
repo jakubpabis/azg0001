@@ -5,3 +5,4 @@
 **/.DS_Store
 !/.gitignore
 !/wp-content/themes
+!/wp-content/wpalchemy
