@@ -212,8 +212,9 @@ function azgour_scripts()
 {
 	wp_enqueue_script('azgour-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array('jquery'), NULL, true);
 	wp_enqueue_script('azgour-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js', array('jquery'), NULL, true);
+	// wp_enqueue_script('azgour-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array('jquery'), NULL, true);
 	wp_enqueue_script('azgour-swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), NULL, true);
-	wp_enqueue_script('azgour-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '2.1.8', true);
+	wp_enqueue_script('azgour-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '2.1.9', true);
 	// wp_enqueue_script( 'azgour-mailer', get_template_directory_uri() . '/js/mailer.js', array( 'jquery' ), NULL, true );
 }
 add_action('wp_enqueue_scripts', 'azgour_scripts');
@@ -945,15 +946,15 @@ function quotes_module()
 	$quote = $metaQ['quote'];
 
 	if ($quote && $quote !== "none" && $quote !== null && $quote) : ?>
-	<div class="container-full home-page" style="margin-bottom:0; padding-top:0;">
-		<div class="col-xs-16 the-quote">
-			<?php
-			$post_Q = get_post($quote);
-			$text_Q = $post_Q->post_content;
-			?>
-			<p><?php echo $text_Q; ?></p>
+		<div class="container-full home-page" style="margin-bottom:0; padding-top:0;">
+			<div class="col-xs-16 the-quote">
+				<?php
+				$post_Q = get_post($quote);
+				$text_Q = $post_Q->post_content;
+				?>
+				<p><?php echo $text_Q; ?></p>
+			</div>
 		</div>
-	</div>
 <?php endif;
 }
 

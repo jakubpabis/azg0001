@@ -21,7 +21,7 @@
 		document.cookie = 'resolution=' + Math.max(screen.width, screen.height) + '; path=/';
 	</script>
 	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/sass/style.min.css?v=1.42">
+	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/sass/style.min.css?v=1.43">
 	<script src="https://use.fontawesome.com/2c188634d9.js" async defer></script>
 	<?php wp_head(); ?>
 	<script id="mcjs">

@@ -131,19 +131,19 @@
 		<?php get_sidebar(); ?>
 
 
-		<?php if (get_post_thumbnail_id()) : ?>
+		<?php /* if (get_post_thumbnail_id()) : ?>
 			<div class="container-full home-page first-one">
 				<?php $thumb1 = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true); ?>
 				<div class="responsive-img-ratio">
 					<img data-src="<?php echo $thumb1[0]; ?>">
 				</div>
 			</div>
-		<?php endif; ?>
+		<?php endif; */ ?>
 
 		<?php if (get_field('slider')) : ?>
-			<div class="container-full home-page">
+			<div class="container-full home-page stacked">
 				<?php foreach (get_field('slider') as $slide) : ?>
-					<div class="stacked-imgs" style="position: relative;">
+					<div class="stacked-imgs">
 						<img data-src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
 						<?php if ($slide['text']) : ?>
 							<div class="swiper-slide-text" style="text-align: center;">

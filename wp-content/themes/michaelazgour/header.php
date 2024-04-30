@@ -3,40 +3,6 @@
 
 <head>
 	<!-- Global Site Tag (gtag.js) - Google Analytics -->
-	<style>
-		body.frontPage {
-			opacity: 0;
-		}
-
-		body.frontPage nav.main-navigation {
-			position: sticky;
-			top: 0;
-			bottom: auto;
-		}
-
-		body.frontPage nav.main-navigation .logo {
-			z-index: 0 !important;
-		}
-
-		body.frontPage nav.main-navigation.sticky .logo {
-			z-index: 999999999 !important;
-		}
-
-		@media(max-width: 28em) {
-			body.frontPage nav.main-navigation {
-				height: 70px;
-			}
-
-			body.frontPage nav.main-navigation .menu-button {
-				top: 17px;
-			}
-
-			body.frontPage nav.main-navigation .logo {
-				width: auto;
-				margin-top: 17px;
-			}
-		}
-	</style>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-28038940-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -58,7 +24,7 @@
 	</script>
 	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/sass/style.min.css?v=1.42">
+	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/sass/style.min.css?v=1.43">
 	<script src="https://use.fontawesome.com/2c188634d9.js" async defer></script>
 	<?php wp_head(); ?>
 	<script id="mcjs">
