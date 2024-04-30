@@ -1465,23 +1465,21 @@ nav.main-navigation.sticky + picture {
   &.home-page {
     padding-top: 70px;
 
-    .stacked {
-      display: flex;
+    &.stacked {
+      .row {
+        display: flex !important;
+        flex-wrap: wrap;
+      }
 
-      &-imgs {
+      .stacked-imgs {
         flex-basis: 33.3333%;
-        margin-bottom: 90px;
+        padding: 15px;
+        position: relative;
 
-        @media (max-width: 991px) {
-          margin-bottom: 70px;
-        }
-
-        @media (max-width: 767px) {
-          margin-bottom: 50px;
-        }
-
-        @media (max-width: 575px) {
-          margin-bottom: 30px;
+        img {
+          aspect-ratio: 1/1;
+          width: auto;
+          object-fit: cover;
         }
       }
     }
@@ -1514,6 +1512,11 @@ nav.main-navigation.sticky + picture {
 
   &.paintings {
     padding-top: 150px;
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
   }
 
   &.highlights {
@@ -1584,6 +1587,17 @@ nav.main-navigation.sticky + picture {
     &.home-page {
       padding-top: 30px;
     }
+  }
+}
+
+.paintings {
+  &.masonry {
+    position: relative;
+    z-index: 9;
+    width: calc(100% - 150px);
+    margin: 0 auto;
+    padding-top: 150px;
+    // padding: 0 75px;
   }
 }
 
@@ -2608,25 +2622,31 @@ footer {
   }
 }
 
+.grid-sizer {
+  width: 20%;
+}
+
 .the-painting {
-  text-align: center;
-  margin-bottom: 110px;
+  // text-align: center;
+  width: 20%;
+  padding: 10px;
+  //margin-bottom: 110px;
 
   &.hide {
     opacity: 0;
   }
 
-  img {
-    max-width: 100%;
-    max-height: calc(100vh - 270px);
-    width: auto;
-    margin: 0 auto;
+  // img {
+  //   max-width: 100%;
+  //   max-height: calc(100vh - 270px);
+  //   width: auto;
+  //   margin: 0 auto;
 
-    @media (max-width: 1120px) {
-      max-height: 75vh;
-      max-height: calc(100vh - 210px);
-    }
-  }
+  //   @media (max-width: 1120px) {
+  //     max-height: 75vh;
+  //     max-height: calc(100vh - 210px);
+  //   }
+  // }
 
   .credits {
     max-width: 660px;
@@ -2682,15 +2702,15 @@ footer {
     }
   }
 
-  @media (max-width: 50em) {
-    margin-bottom: 50px;
-  }
+  // @media (max-width: 50em) {
+  //   margin-bottom: 50px;
+  // }
 
-  @media (max-width: 30em) {
-    img {
-      max-height: 40vh;
-    }
-  }
+  // @media (max-width: 30em) {
+  //   img {
+  //     max-height: 40vh;
+  //   }
+  // }
 }
 
 .the-news {

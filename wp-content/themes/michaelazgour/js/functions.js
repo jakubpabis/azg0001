@@ -301,7 +301,7 @@ function sorting() {
 // }
 
 function seriesSeparator() {
-  $('.row[data-series]').each(function () {
+  $('[data-series]').each(function () {
     if (
       $(this).next().attr('data-series') &&
       $(this).next().attr('data-series') !== $(this).attr('data-series')
@@ -313,7 +313,7 @@ function seriesSeparator() {
 }
 
 function seriesName() {
-  $('.row[data-series]').each(function () {
+  $('[data-series]').each(function () {
     var visible = $(this).visible(true);
     if (visible === true) {
       $('.series-name').text($(this).attr('data-series'));
@@ -323,7 +323,7 @@ function seriesName() {
 }
 
 function seriesNameMobile() {
-  $('.row[data-series]').each(function () {
+  $('[data-series]').each(function () {
     if (
       $(this).prev().attr('data-series') !== $(this).attr('data-series') &&
       $(this).find('.series-name-mobile').length === 0
@@ -428,6 +428,15 @@ function showImgs() {
     $(this).attr('src', $(this).data('src'));
   });
 }
+
+$(window).on('load', function () {
+  $('.paintings.masonry').masonry({
+    // options
+    itemSelector: '.the-painting',
+    columnWidth: '.grid-sizer',
+    percentPosition: true,
+  });
+});
 
 // Is this element visible onscreen?
 // var visible = $(this).visible( detectPartial );

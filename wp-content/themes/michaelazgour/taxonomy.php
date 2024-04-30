@@ -7,7 +7,8 @@
 <div class="sorting in-container">
 	<?php years_news_tags_filter(); ?>
 </div>
-<div class="container-full paintings">
+<div class="paintings masonry">
+	<div class="grid-sizer"></div>
 	<?php $iteration = 0; ?>
 	<?php if (have_posts()) : ?>
 		<?php
@@ -17,10 +18,10 @@
 			<?php
 			global $paintings_mb;
 			$meta1 = get_post_meta(get_the_ID(), $paintings_mb->get_the_id(), TRUE);
-			$data = $meta1['title'];
-			$description = $meta1['description'];
-			$sold = $meta1['is_sold'];
-			$not_show = $meta1['not_main'];
+			$data = isset($meta1['title']) ? $meta1['title'] : false;
+			$description = isset($meta1['description']) ? $meta1['description'] : false;
+			$sold = isset($meta1['sold']) ? $meta1['sold'] : false;
+			$not_show = isset($meta1['not_show']) ? $meta1['not_show'] : false;
 			?>
 			<?php if (!$not_show) : ?>
 				<?php
@@ -31,45 +32,40 @@
 					$name = $term->name;
 					$series_description = $term->description;
 				}
+				/** data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>" */
 				?>
-				<div class="row" data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>">
-					<div class="col-xs-16 the-painting">
-						<a href="<?php echo get_the_permalink(); ?>">
-							<?php if ($iteration <= 3) : ?>
-								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true); ?>">
-							<?php else : ?>
-								<img data-src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post_id), '_wp_attachment_image_alt', true); ?>">
-							<?php endif ?>
-						</a>
-						<div class="credits">
-							<h3><?php the_title(); ?></h3>
-							<p class="technique">
-								<?php echo $data; ?>
-							</p>
-							<p class="charis">
-								<?php echo $description; ?>
-							</p>
-							<?php /*
+				<div class="the-painting">
+
+					<?php if ($iteration <= 3) : ?>
+						<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+					<?php else : ?>
+						<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+					<?php endif ?>
+					<a href="<?php echo get_the_permalink(); ?>" class="whole-element-link"></a>
+					<?php /*<div class="credits">
+						<h3><?php the_title(); ?></h3>
+						<p class="technique">
+							<?php echo $data; ?>
+						</p>
+						<p class="charis">
+							<?php echo $description; ?>
+						</p>
+						<?php
+						if ($sold) {
+						?>
+							<div class="buttonB sold solded">
+								Collected
+							</div>
+						<?php
+						} else {
+						?>
 							<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
-								more information
-							</a> */ ?>
-							<?php
-							if ($sold) {
-							?>
-								<div class="buttonB sold solded">
-									Collected
-								</div>
-							<?php
-							} else {
-							?>
-								<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
-									Available: Inquire
-								</a>
-							<?php
-							}
-							?>
-						</div>
-					</div>
+								Available: Inquire
+							</a>
+						<?php
+						}
+						?> 
+					</div> */ ?>
 				</div>
 			<?php endif; ?>
 		<?php

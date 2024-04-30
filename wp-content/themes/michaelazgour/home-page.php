@@ -142,19 +142,21 @@
 
 		<?php if (get_field('slider')) : ?>
 			<div class="container-full home-page stacked">
-				<?php foreach (get_field('slider') as $slide) : ?>
-					<div class="stacked-imgs">
-						<img data-src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
-						<?php if ($slide['text']) : ?>
-							<div class="swiper-slide-text" style="text-align: center;">
-								<?php echo $slide['text']; ?>
-							</div>
-						<?php endif; ?>
-						<?php if ($slide['link_to']) : ?>
-							<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
-						<?php endif; ?>
-					</div>
-				<?php endforeach; ?>
+				<div class="row">
+					<?php foreach (get_field('slider') as $slide) : ?>
+						<div class="stacked-imgs embed-responsive">
+							<img data-src="<?php echo $slide['image']['url']; ?>" alt="<?php echo $slide['image']['title']; ?>">
+							<?php if ($slide['text']) : ?>
+								<div class="swiper-slide-text" style="text-align: center;">
+									<?php echo $slide['text']; ?>
+								</div>
+							<?php endif; ?>
+							<?php if ($slide['link_to']) : ?>
+								<a href="<?php echo $slide['link_to']['url']; ?>" class="whole-element-link" target="<?php echo $slide['link_to']['target']; ?>"></a>
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
 			</div>
 		<?php endif; ?>
 
