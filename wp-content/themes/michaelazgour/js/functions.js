@@ -436,6 +436,9 @@ $(window).on('load', function () {
     columnWidth: '.grid-sizer',
     percentPosition: true,
   });
+  Fancybox.bind('[data-fancybox="gallery"]', {
+    // Your custom options for a specific gallery
+  });
 });
 
 // Is this element visible onscreen?

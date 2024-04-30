@@ -37,11 +37,11 @@
 				<div class="the-painting">
 
 					<?php if ($iteration <= 3) : ?>
-						<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+						<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
 					<?php else : ?>
-						<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+						<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
 					<?php endif ?>
-					<a href="<?php echo get_the_permalink(); ?>" class="whole-element-link"></a>
+					<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $description; ?>" class="whole-element-link"></a>
 					<?php /*<div class="credits">
 						<h3><?php the_title(); ?></h3>
 						<p class="technique">
