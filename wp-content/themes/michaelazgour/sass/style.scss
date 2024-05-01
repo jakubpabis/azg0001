@@ -457,7 +457,7 @@ body.frontPage nav.main-navigation .logo {
 }
 
 body.frontPage nav.main-navigation.sticky .logo {
-  z-index: 999999999 !important;
+  z-index: 999 !important;
 }
 
 @media (max-width: 28em) {
@@ -744,7 +744,7 @@ nav.main-navigation {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 99999999;
+  z-index: 999;
 
   @include trans(300ms);
 
