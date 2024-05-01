@@ -43,22 +43,22 @@
 					<?php /* endif; */ ?>
 					<?php
 					$title = '<h3>' . get_the_title() . '</h3>';
-					$technique = $data ? '
-						<p class="technique">
-							' . $data . '
-						</p>
-					' : null;
-					$description = $description ? '
-						<p class="charis">
-							' . $description . '
-						</p>' : null;
-					$caption = htmlentities('
-						<div class="credits">
-							' . $title . '
-							' . $data . '
-							' . $description . '
-						</div>
-						');
+					$technique = $data ? '<p class="technique">' . $data . '</p>' : null;
+					$description = $description ? '<p class="charis">' . $description . '</p>' : null;
+					if ($sold) {
+						$button = '
+							<div class="buttonB sold solded">
+								Collected
+							</div>
+						';
+					} else {
+						$button = '
+							<a href="#" class="buttonB sold" data-title="' . get_the_title() . '">
+								Available: Inquire
+							</a>
+						';
+					}
+					$caption = htmlentities('<div class="credits">' . $title . $technique . $description . '</div>');
 					?>
 					<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
 					<?php /*<div class="credits">
