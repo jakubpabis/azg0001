@@ -116,6 +116,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: white;
+  --fancybox-scrollbar-compensate: 0 !important;
 }
 
 img,
@@ -2622,6 +2623,63 @@ footer {
   }
 }
 
+.fancybox__backdrop {
+  background: rgba($color: #ffffff, $alpha: 0.98) !important;
+}
+
+.fancybox__caption {
+  color: initial !important;
+}
+
+.fancybox__infobar {
+  color: initial !important;
+  text-shadow: none !important;
+  font-family: $futuraL;
+}
+
+.fancybox__viewport {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  .credits {
+    max-width: 660px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
+    h3 {
+      margin-top: 45px;
+    }
+
+    hr {
+      margin: 25px auto;
+    }
+
+    p.charis {
+      text-align: justify;
+      color: $grey;
+    }
+
+    p.technique {
+      font-size: 18px;
+      letter-spacing: 0;
+      color: $dgrey;
+      text-align: center;
+      text-transform: lowercase;
+
+      @media (max-width: 47.9375em) {
+        font-size: 16px;
+      }
+    }
+
+    p.price {
+      color: $dgrey;
+      font-family: $futuraM;
+    }
+  }
+}
+
 .grid-sizer {
   width: 20%;
 }
@@ -2653,6 +2711,7 @@ footer {
     height: auto;
     display: block;
     margin: 0 auto;
+    text-align: center;
 
     h3 {
       margin-top: 45px;

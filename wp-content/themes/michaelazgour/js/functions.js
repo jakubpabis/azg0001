@@ -430,11 +430,14 @@ function showImgs() {
 }
 
 $(window).on('load', function () {
-  $('.paintings.masonry').masonry({
+  const $grid = $('.paintings.masonry').masonry({
     // options
     itemSelector: '.the-painting',
     columnWidth: '.grid-sizer',
     percentPosition: true,
+  });
+  $grid.imagesLoaded().progress(function () {
+    $grid.masonry('layout');
   });
   Fancybox.bind('[data-fancybox="gallery"]', {
     // Your custom options for a specific gallery

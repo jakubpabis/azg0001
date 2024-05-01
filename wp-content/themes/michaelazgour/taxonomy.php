@@ -36,12 +36,31 @@
 				?>
 				<div class="the-painting">
 
-					<?php if ($iteration <= 3) : ?>
+					<?php /* if ($iteration <= 3) : ?>
 						<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
-					<?php else : ?>
-						<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
-					<?php endif ?>
-					<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $description; ?>" class="whole-element-link"></a>
+					<?php else : */ ?>
+					<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+					<?php /* endif; */ ?>
+					<?php
+					$title = '<h3>' . get_the_title() . '</h3>';
+					$technique = $data ? '
+						<p class="technique">
+							' . $data . '
+						</p>
+					' : null;
+					$description = $description ? '
+						<p class="charis">
+							' . $description . '
+						</p>' : null;
+					$caption = htmlentities('
+						<div class="credits">
+							' . $title . '
+							' . $data . '
+							' . $description . '
+						</div>
+						');
+					?>
+					<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
 					<?php /*<div class="credits">
 						<h3><?php the_title(); ?></h3>
 						<p class="technique">
