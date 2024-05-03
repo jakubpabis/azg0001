@@ -1513,11 +1513,6 @@ nav.main-navigation.sticky + picture {
 
   &.paintings {
     padding-top: 150px;
-    &:after {
-      content: '';
-      display: block;
-      clear: both;
-    }
   }
 
   &.highlights {
@@ -1594,9 +1589,10 @@ nav.main-navigation.sticky + picture {
 .paintings {
   &.masonry {
     position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
     z-index: 9;
-    width: calc(100% - 150px);
-    margin: 0 auto;
     padding-top: 150px;
     // padding: 0 75px;
   }
@@ -2680,13 +2676,12 @@ footer {
   }
 }
 
-.grid-sizer {
-  width: 20%;
-}
-
 .the-painting {
   // text-align: center;
-  width: 20%;
+  position: relative;
+  height: 25vh;
+  min-width: 100px;
+  flex: auto;
   padding: 10px;
   //margin-bottom: 110px;
 
@@ -2694,17 +2689,17 @@ footer {
     opacity: 0;
   }
 
-  // img {
-  //   max-width: 100%;
-  //   max-height: calc(100vh - 270px);
-  //   width: auto;
-  //   margin: 0 auto;
+  img {
+    max-width: 100%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 
-  //   @media (max-width: 1120px) {
-  //     max-height: 75vh;
-  //     max-height: calc(100vh - 210px);
-  //   }
-  // }
+    // @media (max-width: 1120px) {
+    //   max-height: 75vh;
+    //   max-height: calc(100vh - 210px);
+    // }
+  }
 
   .credits {
     max-width: 660px;

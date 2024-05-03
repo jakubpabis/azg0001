@@ -7,8 +7,7 @@
 <div class="sorting in-container">
 	<?php years_news_tags_filter(); ?>
 </div>
-<div class="paintings masonry">
-	<div class="grid-sizer"></div>
+<div class="container-full paintings masonry">
 	<?php $iteration = 0; ?>
 	<?php if (have_posts()) : ?>
 		<?php
