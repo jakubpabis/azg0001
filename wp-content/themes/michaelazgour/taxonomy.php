@@ -48,8 +48,8 @@
 						<?php $current_series = $name;
 						endif; ?>
 						<div class="the-painting">
-							<?php if ($iteration <= 3) : ?>
-								<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+							<?php if ($iteration <= 6) : ?>
+								<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
 							<?php else : ?>
 								<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
 							<?php endif ?>

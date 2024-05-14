@@ -1478,7 +1478,7 @@ nav.main-navigation.sticky + picture {
         position: relative;
 
         img {
-          aspect-ratio: 1/1;
+          aspect-ratio: 16/9;
           width: auto;
           object-fit: cover;
         }
@@ -2684,16 +2684,17 @@ footer {
   position: relative;
   height: 25vh;
   min-width: 200px;
-  max-width: 33%;
+  max-width: 33.3333333%;
   flex: auto;
-  padding: 16px;
+  padding: 15px;
   //margin-bottom: 110px;
 
   &.hide {
     opacity: 0;
   }
 
-  img {
+  img,
+  picture {
     max-width: 100%;
     object-fit: cover;
     width: 100%;
