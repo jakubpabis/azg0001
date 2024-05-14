@@ -440,7 +440,11 @@ $(window).on('load', function () {
   //   $grid.masonry('layout');
   // });
   Fancybox.bind('[data-fancybox="gallery"]', {
-    // Your custom options for a specific gallery
+    hideScrollbar: false,
+    Thumbs: false,
+    Carousel: {
+      transition: 'fade',
+    },
   });
 });
 

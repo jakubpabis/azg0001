@@ -48,11 +48,11 @@
 						<?php $current_series = $name;
 						endif; ?>
 						<div class="the-painting">
-
-							<?php /* if ($iteration <= 3) : ?>
-						<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
-					<?php else : */ ?>
-							<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+							<?php if ($iteration <= 3) : ?>
+								<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+							<?php else : ?>
+								<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+							<?php endif ?>
 							<?php /* endif; */ ?>
 							<?php
 							$title = '<h3>' . get_the_title() . '</h3>';
@@ -74,30 +74,6 @@
 							$caption = htmlentities('<div class="credits">' . $title . $technique . $description . '</div>');
 							?>
 							<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
-							<?php /*<div class="credits">
-						<h3><?php the_title(); ?></h3>
-						<p class="technique">
-							<?php echo $data; ?>
-						</p>
-						<p class="charis">
-							<?php echo $description; ?>
-						</p>
-						<?php
-						if ($sold) {
-						?>
-							<div class="buttonB sold solded">
-								Collected
-							</div>
-						<?php
-						} else {
-						?>
-							<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
-								Available: Inquire
-							</a>
-						<?php
-						}
-						?> 
-					</div> */ ?>
 						</div>
 					<?php endif; ?>
 				<?php
