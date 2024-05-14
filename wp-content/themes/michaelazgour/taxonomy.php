@@ -7,60 +7,74 @@
 <div class="sorting in-container">
 	<?php years_news_tags_filter(); ?>
 </div>
-<div class="container-full paintings masonry">
-	<?php $iteration = 0; ?>
-	<?php if (have_posts()) : ?>
-		<?php
-		while (have_posts()) : the_post();
-			$iteration = $iteration + 1;
-		?>
-			<?php
-			global $paintings_mb;
-			$meta1 = get_post_meta(get_the_ID(), $paintings_mb->get_the_id(), TRUE);
-			$data = isset($meta1['title']) ? $meta1['title'] : false;
-			$description = isset($meta1['description']) ? $meta1['description'] : false;
-			$sold = isset($meta1['sold']) ? $meta1['sold'] : false;
-			$not_show = isset($meta1['not_show']) ? $meta1['not_show'] : false;
-			?>
-			<?php if (!$not_show) : ?>
+<div class="container-full paintings">
+	<div class="row">
+		<div class="col-xs-16 masonry" style="padding:0;">
+			<?php $iteration = 0; ?>
+			<?php if (have_posts()) : ?>
+				<?php $current_series = false; ?>
 				<?php
-				$terms = get_the_terms($post->ID, 'series');
-				if (!empty($terms)) {
-					// get the first term
-					$term = array_shift($terms);
-					$name = $term->name;
-					$series_description = $term->description;
-				}
-				/** data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>" */
+				while (have_posts()) : the_post();
+					$iteration = $iteration + 1;
 				?>
-				<div class="the-painting">
+					<?php
+					global $paintings_mb;
+					$meta1 = get_post_meta(get_the_ID(), $paintings_mb->get_the_id(), TRUE);
+					$data = isset($meta1['title']) ? $meta1['title'] : false;
+					$description = isset($meta1['description']) ? $meta1['description'] : false;
+					$sold = isset($meta1['sold']) ? $meta1['sold'] : false;
+					$not_main = isset($meta1['not_main']) ? $meta1['not_main'] : false;
+					?>
+					<?php if (!$not_main) : ?>
+						<?php
+						$terms = get_the_terms($post->ID, 'series');
+						if (!empty($terms)) {
+							// get the first term
+							$term = array_shift($terms);
+							$name = $term->name;
+							$series_description = $term->description;
+						}
+						/** data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>" */
+						?>
+						<?php if (!$current_series || $current_series !== $name) : ?>
+							<div class="row" style="margin:0;">
+								<div class="col-m-53 col-xs-16 series-name-mobile">
+									<h2 style="margin:0;"><?php echo $name; ?></h2>
+								</div>
+								<div class="col-m-106 col-xs-16 series-name-mobile">
+									<p style="margin:0;"><?php echo $series_description; ?></p>
+								</div>
+							</div>
+						<?php $current_series = $name;
+						endif; ?>
+						<div class="the-painting">
 
-					<?php /* if ($iteration <= 3) : ?>
+							<?php /* if ($iteration <= 3) : ?>
 						<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
 					<?php else : */ ?>
-					<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
-					<?php /* endif; */ ?>
-					<?php
-					$title = '<h3>' . get_the_title() . '</h3>';
-					$technique = $data ? '<p class="technique">' . $data . '</p>' : null;
-					$description = $description ? '<p class="charis">' . $description . '</p>' : null;
-					if ($sold) {
-						$button = '
+							<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+							<?php /* endif; */ ?>
+							<?php
+							$title = '<h3>' . get_the_title() . '</h3>';
+							$technique = $data ? '<p class="technique">' . $data . '</p>' : null;
+							$description = $description ? '<p class="charis">' . $description . '</p>' : null;
+							if ($sold) {
+								$button = '
 							<div class="buttonB sold solded">
 								Collected
 							</div>
 						';
-					} else {
-						$button = '
+							} else {
+								$button = '
 							<a href="#" class="buttonB sold" data-title="' . get_the_title() . '">
 								Available: Inquire
 							</a>
 						';
-					}
-					$caption = htmlentities('<div class="credits">' . $title . $technique . $description . '</div>');
-					?>
-					<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
-					<?php /*<div class="credits">
+							}
+							$caption = htmlentities('<div class="credits">' . $title . $technique . $description . '</div>');
+							?>
+							<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
+							<?php /*<div class="credits">
 						<h3><?php the_title(); ?></h3>
 						<p class="technique">
 							<?php echo $data; ?>
@@ -84,13 +98,15 @@
 						}
 						?> 
 					</div> */ ?>
-				</div>
+						</div>
+					<?php endif; ?>
+				<?php
+				endwhile;
+				?>
 			<?php endif; ?>
-		<?php
-		endwhile;
-		?>
-	<?php endif; ?>
-	<?php wp_reset_query(); ?>
+			<?php wp_reset_query(); ?>
+		</div>
+	</div>
 </div>
 <div class="sorting in-container">
 	<?php years_news_tags_filter(); ?>

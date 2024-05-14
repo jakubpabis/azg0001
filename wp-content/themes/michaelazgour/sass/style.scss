@@ -1588,14 +1588,17 @@ nav.main-navigation.sticky + picture {
 
 .paintings {
   &.masonry {
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    z-index: 9;
     padding-top: 150px;
     // padding: 0 75px;
   }
+}
+
+.col-xs-16.masonry {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  z-index: 9;
 }
 
 footer {
@@ -2681,8 +2684,9 @@ footer {
   position: relative;
   height: 25vh;
   min-width: 100px;
+  max-width: 33%;
   flex: auto;
-  padding: 10px;
+  padding: 16px;
   //margin-bottom: 110px;
 
   &.hide {
