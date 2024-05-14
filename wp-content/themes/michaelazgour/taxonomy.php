@@ -73,6 +73,11 @@
 							}
 							$caption = htmlentities('<div class="credits">' . $title . $technique . $description . '</div>');
 							?>
+							<div class="the-painting__hover">
+								<?php echo $title; ?>
+								<?php echo $technique; ?>
+								<?php echo $description; ?>
+							</div>
 							<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
 						</div>
 					<?php endif; ?>
