@@ -37,7 +37,7 @@
 						/** data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>" */
 						?>
 						<?php if (!$current_series || $current_series !== $name) : ?>
-							<div class="row" <?php echo !$current_series ? 'style="margin:0;"' : 'style="margin-top: 100px;"'; ?>>
+							<div class="row" <?php echo !$current_series ? 'style="margin:0;"' : 'style="margin-top: 200px;"'; ?>>
 								<div class="col-m-53 col-xs-16 series-name-mobile">
 									<h2 style="margin:0;"><?php echo $name; ?></h2>
 								</div>

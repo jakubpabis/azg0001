@@ -1478,7 +1478,7 @@ nav.main-navigation.sticky + picture {
         position: relative;
 
         img {
-          aspect-ratio: 16/9;
+          aspect-ratio: 9/16;
           width: auto;
           object-fit: cover;
         }
@@ -2682,8 +2682,8 @@ footer {
 .the-painting {
   // text-align: center;
   position: relative;
-  min-height: 20vh;
-  max-height: 40vh;
+  min-height: 60vh;
+  max-height: 80vh;
   min-width: 200px;
   max-width: 33.33333%;
   flex: auto;
