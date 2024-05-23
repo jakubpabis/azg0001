@@ -2682,11 +2682,6 @@ footer {
 .the-painting {
   // text-align: center;
   position: relative;
-  min-height: 60vh;
-  max-height: 80vh;
-  min-width: 200px;
-  max-width: 33.33333%;
-  flex: auto;
   padding: 15px;
   //margin-bottom: 110px;
 
@@ -2707,10 +2702,11 @@ footer {
   img,
   picture {
     max-width: 100%;
-    object-fit: cover;
-    width: 100%;
     height: 100%;
-
+    // height: auto;
+    width: auto;
+    // min-height: 200px;
+    // max-height: 500px;
     @media (max-width: 575px) {
       object-fit: initial;
       height: auto;

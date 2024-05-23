@@ -430,15 +430,6 @@ function showImgs() {
 }
 
 $(window).on('load', function () {
-  // const $grid = $('.paintings.masonry').masonry({
-  //   // options
-  //   itemSelector: '.the-painting',
-  //   columnWidth: '.grid-sizer',
-  //   percentPosition: true,
-  // });
-  // $grid.imagesLoaded().progress(function () {
-  //   $grid.masonry('layout');
-  // });
   Fancybox.bind('[data-fancybox="gallery"]', {
     hideScrollbar: false,
     Thumbs: false,
@@ -446,6 +437,49 @@ $(window).on('load', function () {
       transition: 'fade',
     },
   });
+});
+
+function masonry() {
+  const minH = 300;
+  const maxH = 500;
+  const cont = $('.masonry');
+  const contW = cont.width();
+  const items = cont.find('.the-painting');
+  const images = cont.find('.the-painting img');
+  let imgsWidth = 0;
+  let imgSizes = images.toArray().map((img) => {
+    return {
+      width: parseInt(img.getAttribute('width')),
+      height: parseInt(img.getAttribute('height')),
+      ratio:
+        parseInt(img.getAttribute('width')) /
+        parseInt(img.getAttribute('height')),
+    };
+  });
+  let minHeight = imgSizes.reduce((prev, curr) =>
+    prev.height < curr.height ? prev : curr
+  ).height;
+
+  if (minHeight > minH) {
+    minHeight = minHeight;
+  } else {
+    minHeight = minH;
+  }
+
+  imgSizes.forEach((img, index) => {
+    imgSizes[index].height = minHeight;
+    imgSizes[index].width = Math.round(minHeight * img.ratio);
+  });
+
+  imgSizes.forEach((img) => {
+    imgsWidth = imgsWidth + img.width;
+  });
+
+  console.log(imgsWidth / contW);
+}
+
+$(window).on('load resize', function () {
+  masonry();
 });
 
 // Is this element visible onscreen?
