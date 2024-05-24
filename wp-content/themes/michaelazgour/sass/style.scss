@@ -2688,6 +2688,35 @@ footer {
   }
 }
 
+.fancybox__toolbar__column {
+  margin-top: 10px;
+  margin-right: 10px;
+  .f-button {
+    &:nth-child(1) {
+      margin-right: -1px;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: none !important;
+    }
+  }
+}
+
+.f-button {
+  border: 1px solid $dgrey !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  svg {
+    stroke: $dgrey !important;
+    stroke-width: 1px !important;
+    box-shadow: none !important;
+    filter: none !important;
+    background: transparent !important;
+  }
+}
+
 .the-painting {
   // text-align: center;
   position: relative;
