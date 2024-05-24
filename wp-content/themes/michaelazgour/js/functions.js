@@ -445,8 +445,10 @@ function masonry() {
   const cont = $('.masonry');
   const contW = cont.width();
   const items = cont.find('.the-painting');
+  const itemsPaddingLeft = items.css('padding-left');
+  const itemsPaddingRight = items.css('padding-right');
+  const padding = parseInt(itemsPaddingLeft) + parseInt(itemsPaddingRight);
   const images = cont.find('.the-painting img');
-  let imgsWidth = 0;
   let imgSizes = images.toArray().map((img) => {
     return {
       width: parseInt(img.getAttribute('width')),
@@ -456,32 +458,147 @@ function masonry() {
         parseInt(img.getAttribute('height')),
     };
   });
-  let minHeight = imgSizes.reduce((prev, curr) =>
-    prev.height < curr.height ? prev : curr
+  let maxHeight = imgSizes.reduce((prev, curr) =>
+    prev.height > curr.height ? prev : curr
   ).height;
 
-  if (minHeight > minH) {
-    minHeight = minHeight;
+  if (maxHeight < maxH) {
+    maxHeight = maxHeight;
   } else {
-    minHeight = minH;
+    maxHeight = maxH;
   }
 
   imgSizes.forEach((img, index) => {
-    imgSizes[index].height = minHeight;
-    imgSizes[index].width = Math.round(minHeight * img.ratio);
+    imgSizes[index].height = maxHeight;
+    imgSizes[index].width = maxHeight * img.ratio;
   });
+  console.log(imgSizes);
 
-  imgSizes.forEach((img) => {
-    imgsWidth = imgsWidth + img.width;
-  });
-
-  console.log(imgsWidth / contW);
+  let origSizes = imgSizes.slice();
+  masonryWillItFit(
+    padding,
+    images.toArray(),
+    origSizes,
+    imgSizes,
+    contW,
+    maxHeight
+  );
 }
 
-$(window).on('load resize', function () {
-  masonry();
+function masonryWillItFit(
+  padding,
+  images,
+  origSizes,
+  imgSizes,
+  contW,
+  maxHeight
+) {
+  if (imgSizes && imgSizes.length > 0) {
+    const totalW = imgSizes.reduce((acc, img) => acc + img.width, 0);
+    const lastElem = imgSizes.pop();
+    if (totalW - lastElem.width < contW) {
+      imgSizes.push(lastElem);
+      const ratios = imgSizes.reduce((acc, img) => acc + img.ratio, 0);
+      const newH = Math.min(
+        (contW - imgSizes.length * padding) / ratios,
+        maxHeight
+      );
+      console.log(newH);
+      imgSizes.forEach((img, index) => {
+        imgSizes[index].height = newH;
+        imgSizes[index].width = newH * img.ratio;
+        images[index].style.width = imgSizes[index].width + 'px';
+        images[index].style.height = imgSizes[index].height + 'px';
+      });
+      if (origSizes && origSizes.length > 0) {
+        let newImgSizes = origSizes.slice(imgSizes.length);
+        let newOrigImgSizes = origSizes.slice(imgSizes.length);
+        let newImages = images.slice(imgSizes.length);
+        masonryWillItFit(
+          padding,
+          newImages,
+          newOrigImgSizes,
+          newImgSizes,
+          contW,
+          maxHeight
+        );
+      } else {
+        return;
+      }
+    } else {
+      if (totalW < contW) {
+        imgSizes.push(lastElem);
+        const ratios = imgSizes.reduce((acc, img) => acc + img.ratio, 0);
+        const newH = Math.min(
+          (contW - imgSizes.length * padding) / ratios,
+          maxHeight
+        );
+        imgSizes.forEach((img, index) => {
+          imgSizes[index].height = newH;
+          imgSizes[index].width = newH * img.ratio;
+          images[index].style.width = imgSizes[index].width + 'px';
+          images[index].style.height = imgSizes[index].height + 'px';
+        });
+        if (origSizes && origSizes.length > 0) {
+          let newImgSizes = origSizes.slice(imgSizes.length);
+          let newImages = images.slice(imgSizes.length);
+          masonryWillItFit(
+            padding,
+            newImages,
+            newImgSizes,
+            newImgSizes,
+            contW,
+            maxHeight
+          );
+        } else {
+          return;
+        }
+      } else {
+        masonryWillItFit(
+          padding,
+          images,
+          origSizes.slice(),
+          imgSizes.slice(),
+          contW,
+          maxHeight
+        );
+      }
+    }
+  } else {
+    return;
+  }
+}
+
+function masonryDestroy() {
+  $('.the-painting img').each(function () {
+    $(this).css('width', 'auto');
+    $(this).css('height', 'auto');
+  });
+}
+
+$(window).on('load', function () {
+  if ($(window).width() > 480) {
+    masonry();
+  } else {
+    masonryDestroy();
+  }
 });
 
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  if ($(window).width() > 480) {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      masonry();
+    }, 250);
+  } else {
+    masonryDestroy();
+  }
+});
+
+// $(document).on('ready', function () {
+//   masonry();
+// });
 // Is this element visible onscreen?
 // var visible = $(this).visible( detectPartial );
 // // Set the visible status into the span.

@@ -9,7 +9,7 @@
 </div>
 <div class="container-full paintings">
 	<div class="row">
-		<div class="col-xs-16 masonry" style="padding:0;">
+		<div class="col-xs-16 masonry">
 			<?php $iteration = 0; ?>
 			<?php if (have_posts()) : ?>
 				<?php $current_series = false; ?>
@@ -37,7 +37,7 @@
 						/** data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>" */
 						?>
 						<?php if (!$current_series || $current_series !== $name) : ?>
-							<div class="row" <?php echo !$current_series ? 'style="margin:0;"' : 'style="margin-top: 200px;"'; ?>>
+							<div class="row mx-0 <?php echo !$current_series ? '' : 'mt-150'; ?>">
 								<div class="col-m-53 col-xs-16 series-name-mobile">
 									<h2 style="margin:0;"><?php echo $name; ?></h2>
 								</div>
