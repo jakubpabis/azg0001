@@ -443,46 +443,49 @@ function masonry() {
   const minH = 300;
   const maxH = 500;
   const cont = $('.masonry');
-  const contW = cont.width();
-  const items = cont.find('.the-painting');
-  const itemsPaddingLeft = items.css('padding-left');
-  const itemsPaddingRight = items.css('padding-right');
-  const padding = parseInt(itemsPaddingLeft) + parseInt(itemsPaddingRight);
-  const images = cont.find('.the-painting img');
-  let imgSizes = images.toArray().map((img) => {
-    return {
-      width: parseInt(img.getAttribute('width')),
-      height: parseInt(img.getAttribute('height')),
-      ratio:
-        parseInt(img.getAttribute('width')) /
-        parseInt(img.getAttribute('height')),
-    };
+
+  cont.each(function () {
+    const contW = $(this).width();
+    const items = $(this).find('.the-painting');
+    console.log(items);
+    const itemsPaddingLeft = items.css('padding-left');
+    const itemsPaddingRight = items.css('padding-right');
+    const padding = parseInt(itemsPaddingLeft) + parseInt(itemsPaddingRight);
+    const images = $(this).find('.the-painting img');
+    let imgSizes = images.toArray().map((img) => {
+      return {
+        width: parseInt(img.getAttribute('width')),
+        height: parseInt(img.getAttribute('height')),
+        ratio:
+          parseInt(img.getAttribute('width')) /
+          parseInt(img.getAttribute('height')),
+      };
+    });
+    let maxHeight = imgSizes.reduce((prev, curr) =>
+      prev.height > curr.height ? prev : curr
+    ).height;
+
+    if (maxHeight < maxH) {
+      maxHeight = maxHeight;
+    } else {
+      maxHeight = maxH;
+    }
+
+    imgSizes.forEach((img, index) => {
+      imgSizes[index].height = maxHeight;
+      imgSizes[index].width = maxHeight * img.ratio;
+    });
+
+    let origSizes = imgSizes.slice();
+    masonryWillItFit(
+      padding,
+      images.toArray(),
+      origSizes,
+      imgSizes,
+      contW,
+      maxHeight
+    );
   });
-  let maxHeight = imgSizes.reduce((prev, curr) =>
-    prev.height > curr.height ? prev : curr
-  ).height;
-
-  if (maxHeight < maxH) {
-    maxHeight = maxHeight;
-  } else {
-    maxHeight = maxH;
-  }
-
-  imgSizes.forEach((img, index) => {
-    imgSizes[index].height = maxHeight;
-    imgSizes[index].width = maxHeight * img.ratio;
-  });
-  console.log(imgSizes);
-
-  let origSizes = imgSizes.slice();
-  masonryWillItFit(
-    padding,
-    images.toArray(),
-    origSizes,
-    imgSizes,
-    contW,
-    maxHeight
-  );
 }
 
 function masonryWillItFit(

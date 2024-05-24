@@ -37,58 +37,62 @@
 						/** data-series="<?php echo $name; ?>" data-description="<?php echo $series_description; ?>" */
 						?>
 						<?php if (!$current_series || $current_series !== $name) : ?>
-							<div class="row mx-0 <?php echo !$current_series ? '' : 'mt-150'; ?>">
-								<div class="col-m-53 col-xs-16 series-name-mobile">
-									<h2 style="margin:0;"><?php echo $name; ?></h2>
-								</div>
-								<div class="col-m-106 col-xs-16 series-name-mobile">
-									<p style="margin:0;"><?php echo $series_description; ?></p>
-								</div>
-							</div>
-						<?php $current_series = $name;
+							<?php if (!!$current_series) : ?>
+		</div>
+		<div class="col-xs-16 masonry">
+		<?php endif; ?>
+		<div class="row mx-0">
+			<div class="col-m-53 col-xs-16 series-name-mobile">
+				<h2 style="margin:0;"><?php echo $name; ?></h2>
+			</div>
+			<div class="col-m-106 col-xs-16 series-name-mobile">
+				<p style="margin:0;"><?php echo $series_description; ?></p>
+			</div>
+		</div>
+	<?php $current_series = $name;
 						endif; ?>
-						<div class="the-painting">
-							<?php
-							$image_attributes = wp_get_attachment_image_src(get_post_thumbnail_id());
-							?>
-							<?php if ($iteration <= 100) : ?>
-								<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
-							<?php else : ?>
-								<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
-							<?php endif ?>
-							<?php /* endif; */ ?>
-							<?php
-							$title = '<h3>' . get_the_title() . '</h3>';
-							$technique = $data ? '<p class="technique">' . $data . '</p>' : null;
-							$description = $description ? '<p class="charis">' . $description . '</p>' : null;
-							if ($sold) {
-								$button = '
+	<div class="the-painting">
+		<?php
+						$image_attributes = wp_get_attachment_image_src(get_post_thumbnail_id());
+		?>
+		<?php if ($iteration <= 100) : ?>
+			<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+		<?php else : ?>
+			<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+		<?php endif ?>
+		<?php /* endif; */ ?>
+		<?php
+						$title = '<h3>' . get_the_title() . '</h3>';
+						$technique = $data ? '<p class="technique">' . $data . '</p>' : null;
+						$description = $description ? '<p class="charis">' . $description . '</p>' : null;
+						if ($sold) {
+							$button = '
 							<div class="buttonB sold solded">
 								Collected
 							</div>
 						';
-							} else {
-								$button = '
+						} else {
+							$button = '
 							<a href="#" class="buttonB sold" data-title="' . get_the_title() . '">
 								Available: Inquire
 							</a>
 						';
-							}
-							$caption = htmlentities('<div class="credits">' . $title . $technique . $description . '</div>');
-							?>
-							<div class="the-painting__hover">
-								<?php echo $title; ?>
-								<?php echo $technique; ?>
-								<?php echo $description; ?>
-							</div>
-							<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
-						</div>
-					<?php endif; ?>
-				<?php
+						}
+						$caption = htmlentities('<div class="credits">' . $title . $technique . $description . $button . '</div>');
+		?>
+		<div class="the-painting__hover">
+			<?php echo $title; ?>
+			<?php echo $technique; ?>
+			<?php echo $description; ?>
+		</div>
+		<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
+	</div>
+<?php endif; ?>
+<?php
 				endwhile;
-				?>
-			<?php endif; ?>
-			<?php wp_reset_query(); ?>
+?>
+<?php endif; ?>
+<?php wp_reset_query(); ?>
 		</div>
 	</div>
 </div>
