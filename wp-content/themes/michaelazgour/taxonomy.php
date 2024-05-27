@@ -22,7 +22,7 @@
 					$meta1 = get_post_meta(get_the_ID(), $paintings_mb->get_the_id(), TRUE);
 					$data = isset($meta1['title']) ? $meta1['title'] : false;
 					$description = isset($meta1['description']) ? $meta1['description'] : false;
-					$sold = isset($meta1['sold']) ? $meta1['sold'] : false;
+					$sold = isset($meta1['is_sold']) ? $meta1['is_sold'] : false;
 					$not_main = isset($meta1['not_main']) ? $meta1['not_main'] : false;
 					?>
 					<?php if (!$not_main) : ?>
@@ -55,7 +55,7 @@
 		<?php
 						$image_attributes = wp_get_attachment_image_src(get_post_thumbnail_id());
 		?>
-		<?php if ($iteration <= 100) : ?>
+		<?php if ($iteration <= 10) : ?>
 			<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
 		<?php else : ?>
 			<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">

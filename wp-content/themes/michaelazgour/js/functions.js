@@ -395,16 +395,14 @@ function paintingForm() {
       $this = $(this);
       $form = $('.inquiry-contact');
 
-      if ($form.hasClass('showed') && !$this.next($form).hasClass('showed')) {
-        $form.slideUp(500);
+      if ($form.hasClass('showed')) {
+        $form.fadeOut(300);
         setTimeout(function () {
-          $form.insertAfter($this);
-          $form.slideDown(500);
-        }, 500);
+          $form.fadeIn(300);
+        }, 300);
         $form.addClass('showed');
       } else {
-        $form.insertAfter(this);
-        $form.slideDown(500);
+        $form.fadeIn(300);
         $form.addClass('showed');
       }
       $form.find('.painting-title').find('input').val('');
@@ -417,8 +415,10 @@ function paintingForm() {
   $(document).on('click', '.buttonB.cancel', function (e) {
     e.preventDefault();
     $form = $('.inquiry-contact');
-    $form.slideUp(500);
-    $form.removeClass('showed');
+    $form.fadeOut(300);
+    setTimeout(function () {
+      $form.removeClass('showed');
+    }, 300);
     $form.find('.painting-title').find('input').val('');
   });
 }

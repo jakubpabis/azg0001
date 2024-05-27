@@ -2383,11 +2383,32 @@ footer {
 
 .inquiry-contact {
   display: none;
-  position: relative;
-  width: 100%;
-  height: auto;
-  margin: 30px auto;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.75);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
   padding: 0;
+  z-index: 9999999;
+
+  &.showed {
+    display: flex !important;
+  }
+
+  .widget {
+    padding: 0 60px 20px;
+    background-color: white;
+
+    @media (max-width: 480px) {
+      padding: 0 20px 20px;
+    }
+  }
 
   form {
     text-align: left;
@@ -2415,7 +2436,7 @@ footer {
     input {
       height: 30px;
       padding: 0 15px;
-      line-height: 31px;
+      line-height: 27px;
     }
 
     input[type='submit'] {
@@ -2427,7 +2448,6 @@ footer {
       font-family: $charisB;
       cursor: pointer;
       margin: 5px 0 0 0;
-
       @include trans(300ms);
 
       &:hover {
@@ -2440,7 +2460,7 @@ footer {
       float: right;
       margin: (-30px) 0 0 0;
       height: 30px;
-      line-height: 31px;
+      line-height: 27px;
       font-size: 16px;
     }
   }
@@ -2643,6 +2663,12 @@ footer {
   color: initial !important;
   text-shadow: none !important;
   font-family: $futuraL;
+}
+
+.fancybox__footer {
+  background-color: transparent !important;
+  text-align: center !important;
+  opacity: 1 !important;
 }
 
 .fancybox__viewport {

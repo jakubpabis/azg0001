@@ -217,7 +217,7 @@ function azgour_scripts()
 	// wp_enqueue_script('azgour-masonry', 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', array('jquery'), NULL, true);
 	wp_enqueue_script('azgour-fancy', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array('jquery'), NULL, true);
 	wp_enqueue_script('azgour-swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), NULL, true);
-	wp_enqueue_script('azgour-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '2.1.9', true);
+	wp_enqueue_script('azgour-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '2.2.0', true);
 	// wp_enqueue_script( 'azgour-mailer', get_template_directory_uri() . '/js/mailer.js', array( 'jquery' ), NULL, true );
 }
 add_action('wp_enqueue_scripts', 'azgour_scripts');
@@ -496,7 +496,13 @@ include_once 'metaboxes/paintings-spec.php';
 add_action('admin_init', 'hide_editor');
 function hide_editor()
 {
-	$post_id = (isset($_GET['post']) && $_GET['post'] ? $_GET['post'] : isset($_POST['post_ID'])) ? $_POST['post_ID'] : false;
+	$post_id = false;
+	if (isset($_GET['post']) && $_GET['post']) {
+		$post_id = $_GET['post'];
+	}
+	if (isset($_POST['post_ID']) && $_POST['post_ID']) {
+		$post_id = $_POST['post_ID'];
+	}
 	if (!$post_id) return;
 	$template_file = get_post_meta($post_id, '_wp_page_template', true);
 	if ($template_file == 'archive-paintings.php') {
@@ -1117,7 +1123,13 @@ include_once 'metaboxes/cv-spec.php';
 add_action('admin_init', 'hide_editor_contact');
 function hide_editor_contact()
 {
-	$post_id = (isset($_GET['post']) && $_GET['post'] ? $_GET['post'] : isset($_POST['post_ID'])) ? $_POST['post_ID'] : false;
+	$post_id = false;
+	if (isset($_GET['post']) && $_GET['post']) {
+		$post_id = $_GET['post'];
+	}
+	if (isset($_POST['post_ID']) && $_POST['post_ID']) {
+		$post_id = $_POST['post_ID'];
+	}
 	if (!$post_id) return;
 	$template_file = get_post_meta($post_id, '_wp_page_template', true);
 	if ($template_file == 'contact-page.php') { // the filename of the page template
@@ -1132,7 +1144,13 @@ include_once 'metaboxes/follow_spec.php';
 add_action('admin_init', 'hide_editor_links');
 function hide_editor_links()
 {
-	$post_id = (isset($_GET['post']) && $_GET['post'] ? $_GET['post'] : isset($_POST['post_ID'])) ? $_POST['post_ID'] : false;
+	$post_id = false;
+	if (isset($_GET['post']) && $_GET['post']) {
+		$post_id = $_GET['post'];
+	}
+	if (isset($_POST['post_ID']) && $_POST['post_ID']) {
+		$post_id = $_POST['post_ID'];
+	}
 	if (!$post_id) return;
 	$template_file = get_post_meta($post_id, '_wp_page_template', true);
 	if ($template_file == 'links-page.php') { // the filename of the page template
@@ -1209,7 +1227,13 @@ add_action('init', 'testimonials_post_type', 0);
 add_action('admin_init', 'hide_editor_testimonials');
 function hide_editor_testimonials()
 {
-	$post_id = (isset($_GET['post']) && $_GET['post'] ? $_GET['post'] : isset($_POST['post_ID'])) ? $_POST['post_ID'] : false;
+	$post_id = false;
+	if (isset($_GET['post']) && $_GET['post']) {
+		$post_id = $_GET['post'];
+	}
+	if (isset($_POST['post_ID']) && $_POST['post_ID']) {
+		$post_id = $_POST['post_ID'];
+	}
 	if (!$post_id) return;
 	$template_file = get_post_meta($post_id, '_wp_page_template', true);
 	if ($template_file == 'testimonials-page.php') { // the filename of the page template
