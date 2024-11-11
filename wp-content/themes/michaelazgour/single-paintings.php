@@ -6,9 +6,9 @@
 			<?php
 			global $paintings_mb;
 			$meta1 = get_post_meta(get_the_ID(), $paintings_mb->get_the_id(), TRUE);
-			$data = $meta1['title'];
-			$sold = $meta1['is_sold'];
-			$not_show = $meta1['not_main'];
+			$data = $meta1['title'] ?? '';
+			$sold = $meta1['is_sold'] ?? false;
+			$not_show = $meta1['not_main'] ?? false;
 			$next_post_id = get_next_post()->ID;
 			$prev_post_id = get_previous_post()->ID;
 			?>
@@ -38,26 +38,28 @@
 					</div>
 					<div class="col-xs-16 text-center m767">
 						<div class="credits text-center m767">
-							<p class="technique">
+							<p class="technique text-center">
 								<?php echo $data; ?>
 							</p>
 						</div>
 					</div>
 					<div class="col-l-3"></div>
-					<div class="col-l-10 col-xs-16 news-single-copy painting text-center m767">
-						<?php echo get_field('single_page_description'); ?>
-					</div>
+					<?php if (!empty(get_field('single_page_description'))): ?>
+						<div class="col-l-10 col-xs-16 news-single-copy painting text-center m767">
+							<?php echo get_field('single_page_description'); ?>
+						</div>
+					<?php endif; ?>
 				</div>
 				<div class="row">
 					<div class="col-l-3"></div>
 					<?php if ($sold) : ?>
-						<div class="col-l-10 col-xs-16">
+						<div class="col-l-10 col-xs-16 text-center">
 							<div class="buttonB sold solded">
 								Collected
 							</div>
 						</div>
 					<?php else : ?>
-						<div class="col-l-10 col-xs-16">
+						<div class="col-l-10 col-xs-16 text-center">
 							<a href="#" class="buttonB enquiry" data-title="<?php the_title(); ?>">
 								Enquiry
 							</a>

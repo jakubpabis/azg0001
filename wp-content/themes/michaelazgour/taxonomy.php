@@ -56,9 +56,9 @@
 						$image_attributes = wp_get_attachment_image_src(get_post_thumbnail_id());
 		?>
 		<?php if ($iteration <= 10) : ?>
-			<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+			<img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
 		<?php else : ?>
-			<img data-src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+			<img data-src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
 		<?php endif ?>
 		<?php /* endif; */ ?>
 		<?php
@@ -86,6 +86,13 @@
 			<?php echo $description; ?>
 		</div>
 		<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
+		<a href="<?php echo get_the_permalink(); ?>" class="whole-element-link whole-element-link-mobile"></a>
+		<div class="text-center credits-mobile">
+			<?php echo $title; ?>
+			<?php echo $technique; ?>
+			<?php echo $description; ?>
+			<?php echo $button; ?>
+		</div>
 	</div>
 <?php endif; ?>
 <?php
@@ -217,14 +224,14 @@
 	$module_query = new WP_Query($args);
 	if ($module_query->have_posts()) :
 	?><div class="row modules"><?php
-															while ($module_query->have_posts()) : $module_query->the_post(); ?>
+								while ($module_query->have_posts()) : $module_query->the_post(); ?>
 				<?php
-																$thumb_m1 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb');
-																$thumb_m12 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb2');
-																$thumb_m13 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb3');
-																$thumb_m14 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb4');
-																$thumb_m15 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb5');
-																$thumb_m16 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb6');
+									$thumb_m1 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb');
+									$thumb_m12 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb2');
+									$thumb_m13 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb3');
+									$thumb_m14 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb4');
+									$thumb_m15 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb5');
+									$thumb_m16 = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'module_thumb6');
 				?>
 				<div class="col-s-53 col-xs-16 the-module">
 					<picture>
@@ -241,15 +248,15 @@
 					<h2><?php the_title(); ?></h2>
 					<p><?php the_content(); ?></p>
 					<a href="<?php echo get_post_meta(get_the_ID(), '_my_module_link', TRUE); ?>" <?php if (get_post_meta(get_the_ID(), '_my_is_new_tab', TRUE)) {
-																																													echo 'target="_blank"';
-																																												} ?>></a>
+																										echo 'target="_blank"';
+																									} ?>></a>
 				</div>
 			<?php endwhile;
 			?>
 		</div><?php
-				endif;
-				wp_reset_query();
-					?>
+			endif;
+			wp_reset_query();
+				?>
 </div>
 <div class="upArrow">
 	<i class="fa fa-angle-up"></i>

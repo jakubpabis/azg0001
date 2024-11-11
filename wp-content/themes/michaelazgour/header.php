@@ -23,7 +23,7 @@
 		document.cookie = 'resolution=' + Math.max(screen.width, screen.height) + '; path=/';
 	</script>
 	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/sass/style.min.css?v=1.46">
+	<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/sass/style.min.css?v=1.47">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 	<script src="https://use.fontawesome.com/2c188634d9.js" async defer></script>
@@ -36,13 +36,13 @@
 </head>
 
 <body <?php if (is_front_page()) {
-				body_class('frontPage');
-			}
-			if (wp_is_mobile()) {
-				body_class('mobile');
-			} else {
-				body_class();
-			} ?>>
+			body_class('frontPage');
+		}
+		if (wp_is_mobile()) {
+			body_class('mobile');
+		} else {
+			body_class();
+		} ?>>
 	<?php
 	if (!is_front_page()) {
 		get_sidebar();

@@ -34,7 +34,11 @@ if (!function_exists('azgour_setup')) :
 		));
 
 		add_theme_support('html5', array(
-			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption'
 		));
 	}
 endif;
@@ -217,7 +221,7 @@ function azgour_scripts()
 	// wp_enqueue_script('azgour-masonry', 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', array('jquery'), NULL, true);
 	wp_enqueue_script('azgour-fancy', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array('jquery'), NULL, true);
 	wp_enqueue_script('azgour-swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), NULL, true);
-	wp_enqueue_script('azgour-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '2.2.0', true);
+	wp_enqueue_script('azgour-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '2.2.1', true);
 	// wp_enqueue_script( 'azgour-mailer', get_template_directory_uri() . '/js/mailer.js', array( 'jquery' ), NULL, true );
 }
 add_action('wp_enqueue_scripts', 'azgour_scripts');
@@ -800,8 +804,8 @@ function modules_module()
 						<h2><?php echo $title_m1; ?></h2>
 						<p><?php echo $text_m1; ?></p>
 						<a href="<?php echo $metaL1; ?>" <?php if ($metaNT1) {
-																								echo 'target="_blank"';
-																							} ?>></a>
+																echo 'target="_blank"';
+															} ?>></a>
 					<?php
 					}
 					?>
@@ -835,8 +839,8 @@ function modules_module()
 						<h2><?php echo $title_m2; ?></h2>
 						<p><?php echo $text_m2; ?></p>
 						<a href="<?php echo $metaL2; ?>" <?php if ($metaNT2) {
-																								echo 'target="_blank"';
-																							} ?>></a>
+																echo 'target="_blank"';
+															} ?>></a>
 					<?php
 					}
 					?>
@@ -870,8 +874,8 @@ function modules_module()
 						<h2><?php echo $title_m3; ?></h2>
 						<p><?php echo $text_m3; ?></p>
 						<a href="<?php echo $metaL3; ?>" <?php if ($metaNT3) {
-																								echo 'target="_blank"';
-																							} ?>></a>
+																echo 'target="_blank"';
+															} ?>></a>
 					<?php
 					}
 					?>
@@ -952,7 +956,7 @@ function quotes_module()
 {
 	global $quotes_mb;
 	$metaQ = get_post_meta(get_the_ID(), $quotes_mb->get_the_id(), TRUE);
-	$quote = $metaQ['quote'];
+	$quote = $metaQ['quote'] ?? false;
 
 	if ($quote && $quote !== "none" && $quote !== null && $quote) : ?>
 		<div class="container-full home-page" style="margin-bottom:0; padding-top:0;">
