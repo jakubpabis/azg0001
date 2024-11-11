@@ -12,6 +12,9 @@ if (!function_exists('azgour_setup')) :
 
 		add_theme_support('post-thumbnails');
 		add_image_size('img_rotator', 1920, 1200, array('center', 'center'));
+		add_image_size('resp_L', 1920, 0, array('center', 'center'));
+		add_image_size('resp_M', 960, 0, array('center', 'center'));
+		add_image_size('resp_S', 640, 0, array('center', 'center'));
 		add_image_size('full_size', 1920, 600, array('center', 'center'));
 		add_image_size('full_sizeS', 580, 464, array('center', 'center'));
 		add_image_size('full_sizeM', 800, 640, array('center', 'center'));

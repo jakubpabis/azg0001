@@ -53,12 +53,12 @@
 						endif; ?>
 	<div class="the-painting">
 		<?php
-						$image_attributes = wp_get_attachment_image_src(get_post_thumbnail_id());
+						$image_attributes = wp_get_attachment_image_src(get_post_thumbnail_id(), 'resp_M');
 		?>
 		<?php if ($iteration <= 10) : ?>
-			<img src="<?php the_post_thumbnail_url('full_sizeM'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+			<img src="<?php echo $image_attributes[0]; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
 		<?php else : ?>
-			<img data-src="<?php the_post_thumbnail_url('full_sizeM'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+			<img data-src="<?php echo $image_attributes[0]; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
 		<?php endif ?>
 		<?php /* endif; */ ?>
 		<?php
@@ -80,11 +80,7 @@
 						}
 						$caption = htmlentities('<div class="credits">' . $title . $technique . $description . $button . '</div>');
 		?>
-		<div class="the-painting__hover">
-			<?php echo $title; ?>
-			<?php echo $technique; ?>
-			<?php echo $description; ?>
-		</div>
+
 		<a href="<?php the_post_thumbnail_url(); ?>" data-fancybox="gallery" data-caption="<?php echo $caption; ?>" class="whole-element-link"></a>
 		<a href="<?php echo get_the_permalink(); ?>" class="whole-element-link whole-element-link-mobile"></a>
 		<div class="text-center credits-mobile">
