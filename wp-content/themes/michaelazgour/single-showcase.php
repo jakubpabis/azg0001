@@ -85,22 +85,28 @@ Template Name: single-showcase.php
 					global $paintings_mb;
 					$post_c = get_post($case['showcase']);
 					$thumb_c = wp_get_attachment_image_src(get_post_thumbnail_id($post_c));
-					$title_c = $post_c->post_title;
+					$title_c = $post_c->post_title ?? '';
 					$metaC = get_post_meta($case['showcase'], $paintings_mb->get_the_id(), TRUE);
 					?>
 					<?php if ($case['showcase'] !== "none") : ?>
 						<div class="row" data-series="<?php echo $the_title ? null : the_title(); ?>">
-							<div class="col-xs-16 the-painting">
+							<div class="col-xs-16 the-painting text-center">
 								<img src="<?php echo $thumb_c[0]; ?>" alt="">
 								<div class="credits">
-									<h3><?php echo $title_c; ?></h3>
-									<p class="technique">
-										<?php echo $metaC['title']; ?>
-									</p>
-									<p class="charis">
-										<?php echo $metaC['description']; ?>
-									</p>
-									<?php if ($metaC['price']) : ?>
+									<?php if ($title_c): ?>
+										<h3><?php echo $title_c; ?></h3>
+									<?php endif; ?>
+									<?php if (!empty($metaC['title'])) : ?>
+										<p class="technique">
+											<?php echo $metaC['title']; ?>
+										</p>
+									<?php endif; ?>
+									<?php if (!empty($metaC['description'])): ?>
+										<p class="charis">
+											<?php echo $metaC['description']; ?>
+										</p>
+									<?php endif; ?>
+									<?php if (!empty($metaC['price'])) : ?>
 										<p class="price">
 											Price: $ <?php echo $metaC['price']; ?>
 										</p>
