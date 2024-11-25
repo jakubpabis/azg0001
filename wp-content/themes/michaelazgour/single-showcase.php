@@ -58,7 +58,7 @@ Template Name: single-showcase.php
 	</div>
 <?php endif; ?>
 <?php if (!post_password_required()) : ?>
-	<div class="container-full paintings">
+	<div class="container-full paintings showcase">
 
 		<?php if (have_posts()) : ?>
 			<?php $the_title = get_field('title');

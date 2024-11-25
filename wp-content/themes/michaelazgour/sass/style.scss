@@ -1608,6 +1608,14 @@ nav.main-navigation.sticky + picture {
 	&.masonry {
 		padding-top: 150px;
 	}
+	&.showcase {
+		.the-painting {
+			picture,
+			img {
+				max-height: calc(100vh - 200px);
+			}
+		}
+	}
 }
 
 .col-xs-16.masonry {

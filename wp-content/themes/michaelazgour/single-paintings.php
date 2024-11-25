@@ -9,8 +9,8 @@
 			$data = $meta1['title'] ?? '';
 			$sold = $meta1['is_sold'] ?? false;
 			$not_show = $meta1['not_main'] ?? false;
-			$next_post_id = get_next_post()->ID;
-			$prev_post_id = get_previous_post()->ID;
+			$next_post_id = get_next_post()->ID ?? '';
+			$prev_post_id = get_previous_post()->ID ?? '';
 			?>
 			<div class="row news-text painting">
 				<div class="col-m-4 col-l-3 news-text-next">
@@ -60,14 +60,9 @@
 						</div>
 					<?php else : ?>
 						<div class="col-l-10 col-xs-16 text-center">
-							<a href="#" class="buttonB enquiry" data-title="<?php the_title(); ?>">
-								Enquiry
+							<a href="#" class="buttonB sold" data-title="<?php the_title(); ?>">
+								Available: Inquire
 							</a>
-						</div>
-						<div class="inquiry-contact text-left">
-							<?php if (is_active_sidebar('inquiry_form')) : ?>
-								<?php dynamic_sidebar('inquiry_form'); ?>
-							<?php endif; ?>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -89,4 +84,11 @@
 	<?php endif; ?>
 	<?php quotes_module(); ?>
 </div>
+<?php if (!$sold) : ?>
+	<div class="inquiry-contact text-left">
+		<?php if (is_active_sidebar('inquiry_form')) : ?>
+			<?php dynamic_sidebar('inquiry_form'); ?>
+		<?php endif; ?>
+	</div>
+<?php endif; ?>
 <?php get_footer('single'); ?>
