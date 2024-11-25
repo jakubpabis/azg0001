@@ -3061,6 +3061,9 @@ footer {
 
 	&.painting {
 		margin-bottom: 3em;
+		@media (max-width: 799px) {
+			margin-bottom: 1.5em;
+		}
 	}
 
 	&-title-center {
@@ -3281,6 +3284,12 @@ footer {
 				}
 			}
 		}
+
+		.technique {
+			@media (max-width: 799px) {
+				margin-top: 0 !important;
+			}
+		}
 	}
 
 	&.first {
@@ -3434,6 +3443,9 @@ footer {
 	margin-bottom: 30px;
 
 	&.painting {
+		@media (max-width: 799px) {
+			margin-top: 20px;
+		}
 		.nav-links {
 			@media (max-width: 26.25em) {
 				> div {

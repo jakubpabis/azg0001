@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="container-full news-single painting text-center m767">
+<div class="container-full news-single painting text-center">
 	<?php if (have_posts()) : ?>
 		<?php
 		while (have_posts()) : the_post(); ?>
@@ -32,12 +32,12 @@
 				</div>
 			</div>
 			<?php if (!$not_show) : ?>
-				<div class="row news-photos painting text-center m767">
-					<div class="col-xs-16 the-photo text-center m767">
+				<div class="row news-photos painting text-center">
+					<div class="col-xs-16 the-photo text-center">
 						<?php the_post_thumbnail(); ?>
 					</div>
-					<div class="col-xs-16 text-center m767">
-						<div class="credits text-center m767">
+					<div class="col-xs-16 text-center">
+						<div class="credits text-center">
 							<p class="technique text-center">
 								<?php echo $data; ?>
 							</p>
@@ -45,7 +45,7 @@
 					</div>
 					<div class="col-l-3"></div>
 					<?php if (!empty(get_field('single_page_description'))): ?>
-						<div class="col-l-10 col-xs-16 news-single-copy painting text-center m767">
+						<div class="col-l-10 col-xs-16 news-single-copy painting text-center">
 							<?php echo get_field('single_page_description'); ?>
 						</div>
 					<?php endif; ?>
