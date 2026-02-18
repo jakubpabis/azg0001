@@ -17,7 +17,7 @@
 		}
 		?>
 
-		<div class="home-image" style="background-color: #000000;">
+		<!-- <div class="home-image" style="background-color: #000000;">
 			<div class="overlayHome"></div>
 			<div class="logo">
 				<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="290px" height="92px" viewBox="0 0 290 92" enable-background="new 0 0 290 92" xml:space="preserve">
@@ -126,7 +126,7 @@
 				</div>
 			<?php endif; */
 			?>
-		</div>
+		</div> -->
 
 		<?php get_sidebar(); ?>
 

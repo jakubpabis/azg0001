@@ -35,14 +35,12 @@
 	</script>
 </head>
 
-<body <?php if (is_front_page()) {
-			body_class('frontPage');
-		}
-		if (wp_is_mobile()) {
-			body_class('mobile');
-		} else {
-			body_class();
-		} ?>>
+<body <?php
+			if (wp_is_mobile()) {
+				body_class('mobile');
+			} else {
+				body_class();
+			} ?>>
 	<?php
 	if (!is_front_page()) {
 		get_sidebar();
